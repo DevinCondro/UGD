@@ -13,6 +13,8 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var registerUsername: TextInputEditText
     private lateinit var registerPassword: TextInputEditText
     private lateinit var registerEmail: TextInputEditText
+    private lateinit var registerTanggal : TextInputEditText
+    private lateinit var registerTelp : TextInputEditText
     private lateinit var mainLayout: ConstraintLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,6 +26,8 @@ class RegisterActivity : AppCompatActivity() {
         registerUsername = findViewById(R.id.etUsername)
         registerPassword = findViewById(R.id.etPassword)
         registerEmail = findViewById(R.id.etEmail)
+        registerTanggal = findViewById(R.id.etTanggal)
+        registerTelp = findViewById(R.id.etPhone)
         mainLayout = findViewById(R.id.mainLayout)
         val btnCancel: Button = findViewById(R.id.btnCancel)
         val btnSignUp: Button = findViewById(R.id.btnSignUp)
@@ -32,6 +36,8 @@ class RegisterActivity : AppCompatActivity() {
             registerUsername.setText("")
             registerPassword.setText("")
             registerEmail.setText("")
+            registerTanggal.setText("")
+            registerTelp.setText("")
 
             Snackbar.make(mainLayout, "Text Cleared Success", Snackbar.LENGTH_LONG).show()
         }
