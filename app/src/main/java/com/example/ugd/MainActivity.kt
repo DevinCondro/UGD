@@ -45,6 +45,7 @@ class MainActivity : AppCompatActivity() {
 
             if(username == "admin" && password == "0729") checkLogin = true
             if(username == "Devin" && password == "0729") checkLogin = true
+            if(username == "Alfa" && password == "0388") checkLogin = true
             if(!checkLogin) return@OnClickListener
 //            val moveHome = Intent(this@MainActivity, HomeActivity::class.java)
 //            startActivity(moveHome)
