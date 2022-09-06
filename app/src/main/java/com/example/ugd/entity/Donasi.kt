@@ -1,6 +1,6 @@
 package com.example.ugd.entity
 
-class Donasi (var name: String, var perluDonasi: Double) {
+class Donasi (var namaDonasi: String, var targetDonasi: Double) {
 
     companion object{
         @JvmField
