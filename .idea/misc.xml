@@ -16,11 +16,12 @@
         <entry key="..\:/Users/62811/AndroidStudioProjects/UGD/app/src/main/res/layout/activity_home.xml" value="0.20863616930312098" />
         <entry key="..\:/Users/62811/AndroidStudioProjects/UGD/app/src/main/res/layout/activity_main.xml" value="0.4" />
         <entry key="..\:/Users/62811/AndroidStudioProjects/UGD/app/src/main/res/layout/activity_register.xml" value="0.264" />
-        <entry key="..\:/Users/62811/AndroidStudioProjects/UGD/app/src/main/res/layout/fragment_donasi.xml" value="0.1005014625992478" />
+        <entry key="..\:/Users/62811/AndroidStudioProjects/UGD/app/src/main/res/layout/fragment_donasi.xml" value="0.264" />
         <entry key="..\:/Users/62811/AndroidStudioProjects/UGD/app/src/main/res/layout/fragment_home.xml" value="0.19709277469003847" />
         <entry key="..\:/Users/62811/AndroidStudioProjects/UGD/app/src/main/res/layout/rv_donasi.xml" value="0.10008357709987463" />
         <entry key="..\:/Users/62811/AndroidStudioProjects/UGD/app/src/main/res/layout/rv_donatur.xml" value="0.1" />
         <entry key="..\:/Users/62811/AndroidStudioProjects/UGD/app/src/main/res/layout/rv_home.xml" value="0.20778110303548525" />
+        <entry key="..\:/Users/62811/AndroidStudioProjects/UGD/app/src/main/res/layout/rv_item_donasi.xml" value="0.536" />
         <entry key="..\:/Users/62811/AndroidStudioProjects/UGD/app/src/main/res/menu/home_menu.xml" value="0.2030392570704939" />
         <entry key="..\:/Users/62811/AndroidStudioProjects/UGD/app/src/main/res/menu/navigasi_bawah.xml" value="0.20863616930312098" />
       </map>
