@@ -25,6 +25,10 @@ class MainActivity : AppCompatActivity() {
 
         btnRegister.setOnClickListener{
             val intent = Intent(this, RegisterActivity::class.java)
+            val mBundle = Bundle()
+
+            mBundle.putString("Username", inputUsername.toString())
+            mBundle.putString("Password", inputPassword.toString())
             startActivity(intent)
         }
 
@@ -47,8 +51,8 @@ class MainActivity : AppCompatActivity() {
             if(username == "Devin" && password == "0729") checkLogin = true
             if(username == "Alfa" && password == "0388") checkLogin = true
             if(!checkLogin) return@OnClickListener
-//            val moveHome = Intent(this@MainActivity, HomeActivity::class.java)
-//            startActivity(moveHome)
+            val moveHome = Intent(this@MainActivity, HomeActivity::class.java)
+            startActivity(moveHome)
         })
 
     }
