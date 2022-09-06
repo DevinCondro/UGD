@@ -3,6 +3,8 @@ package com.example.ugd
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
@@ -41,5 +43,23 @@ class RegisterActivity : AppCompatActivity() {
 
             Snackbar.make(mainLayout, "Text Cleared Success", Snackbar.LENGTH_LONG).show()
         }
+    }
+
+    override fun onBackPressed() {
+        AlertDialog.Builder(this).apply {
+            setTitle("Please confirm.")
+            setMessage("Are you want to exit the app?")
+
+            setPositiveButton("Yes") { _, _ ->
+                super.onBackPressed()
+            }
+
+            setNegativeButton("No"){_, _ ->
+                Toast.makeText(this@RegisterActivity, "Thank you",
+                    Toast.LENGTH_LONG).show()
+            }
+
+            setCancelable(true)
+        }.create().show()
     }
 }

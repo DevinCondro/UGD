@@ -1,11 +1,15 @@
 package com.example.ugd
 
+import android.content.DialogInterface
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputLayout
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -55,5 +59,24 @@ class MainActivity : AppCompatActivity() {
             startActivity(moveHome)
         })
 
+
+    }
+
+    override fun onBackPressed() {
+        AlertDialog.Builder(this).apply {
+            setTitle("Please confirm.")
+            setMessage("Are you want to exit the app?")
+
+            setPositiveButton("Yes") { _, _ ->
+                super.onBackPressed()
+            }
+
+            setNegativeButton("No"){_, _ ->
+                Toast.makeText(this@MainActivity, "Thank you",
+                    Toast.LENGTH_LONG).show()
+            }
+
+            setCancelable(true)
+        }.create().show()
     }
 }

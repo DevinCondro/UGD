@@ -6,82 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
 
-    <RelativeLayout
-        android:id="@+id/bg"
-        android:layout_width="410dp"
-        android:layout_height="250dp"
-        android:background="@color/blue1"
-        app:layout_constraintBottom_toBottomOf="250dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView1"
-        style="@style/TextAppearance.MaterialComponents.Headline6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="Selamat Datang"
-        app:layout_constraintBottom_toBottomOf="250dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias=""/>
-
-    <TextView
-        android:id="@+id/textView2"
-        style="@style/TextAppearance.MaterialComponents.Headline5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Username"
-        tools:layout_editor_absoluteX="24dp"
-        tools:layout_editor_absoluteY="118dp" />
-
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="164dp"
-        android:layout_height="127dp"
-        app:srcCompat="@drawable/bencana"
-        tools:layout_editor_absoluteX="24dp"
-        tools:layout_editor_absoluteY="369dp" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Bencana di Aceh"
-        tools:layout_editor_absoluteX="57dp"
-        tools:layout_editor_absoluteY="507dp" />
-
-    <TextView
-        android:id="@+id/textView3"
-        style="@style/TextAppearance.MaterialComponents.Headline4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/bg"
-        android:text="Campaign"
-        tools:layout_editor_absoluteX="133dp"
-        tools:layout_editor_absoluteY="271dp" />
-
-    <TextView
-        android:id="@+id/textView4"
-        style="@style/TextAppearance.MaterialComponents.Headline6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Mari berdonasi untuk yang membutuhkan "
-        tools:layout_editor_absoluteX="10dp"
-        tools:layout_editor_absoluteY="316dp" />
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/navigasi_bawah"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/layout_fragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:background="@color/blue1"
-        app:itemIconTint="@color/white"
-        app:itemTextColor="@color/white"
-        app:menu="@menu/navigasi_bawah" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
