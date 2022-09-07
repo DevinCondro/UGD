@@ -14,7 +14,7 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        changeFragment(FragmentDonasi())
+        changeFragment(FragmentHome())
     }
 
     fun changeFragment(fragment: Fragment?){
@@ -33,10 +33,8 @@ class HomeActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(item.itemId == R.id.donate){
-            changeFragment(FragmentDonasi())
-        } else if (item.itemId == R.id.home){
-            changeFragment(FragmentHome())
+        if(item.itemId == R.id.donatur){
+            changeFragment(FragmentDonatur())
         } else {
             val builder: AlertDialog.Builder = AlertDialog.Builder(this@HomeActivity)
             builder.setMessage("Are you sure want to exit?")
@@ -49,4 +47,8 @@ class HomeActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
+
+//    fun getBundle(){
+//        mBundle = intent.getBundleExtra("Data")!!
+//    }
 }

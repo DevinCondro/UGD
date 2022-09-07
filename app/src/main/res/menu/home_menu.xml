@@ -4,6 +4,6 @@
         android:title="Inbox"/>
     <item android:id="@+id/setting"
         android:title="Settings"/>
-    <item android:id="@+id/home"
-        android:title="Home"/>
+    <item android:id="@+id/donatur"
+        android:title="Donatur"/>
 </menu>
