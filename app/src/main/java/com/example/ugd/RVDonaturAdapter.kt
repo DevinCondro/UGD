@@ -18,7 +18,7 @@ class RVDonaturAdapter(private val data: Array<Donatur>) : RecyclerView.Adapter<
     override fun onBindViewHolder(holder: viewHolder, position: Int) {
         val currentItem = data[position]
         holder.tv_namaDonatur.text = currentItem.namaDonatur
-        holder.tv_jumlahDonasi.text = "${currentItem.jumlahDonasi}"
+        holder.tv_jumlahDonasi.text = "Rp. ${currentItem.jumlahDonasi}"
     }
 
     override fun getItemCount(): Int {

@@ -29,6 +29,7 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val menuInflater = MenuInflater(this)
         menuInflater.inflate(R.menu.navigasi_bawah, menu)
+
         return true
     }
 
@@ -47,6 +48,8 @@ class HomeActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
+
+
 
 //    fun getBundle(){
 //        mBundle = intent.getBundleExtra("Data")!!

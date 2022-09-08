@@ -7,21 +7,26 @@
         <entry key="..\:/Kuliah/Semester 7/PBP/Guided/GD1/UGD/app/src/main/res/drawable/circle.xml" value="0.224" />
         <entry key="..\:/Kuliah/Semester 7/PBP/Guided/GD1/UGD/app/src/main/res/drawable/ic_baseline_face_24.xml" value="0.2265" />
         <entry key="..\:/Kuliah/Semester 7/PBP/Guided/GD1/UGD/app/src/main/res/drawable/ic_baseline_remove_red_eye_24.xml" value="0.2265" />
-        <entry key="..\:/Kuliah/Semester 7/PBP/Guided/GD1/UGD/app/src/main/res/layout/activity_home.xml" value="0.1" />
+        <entry key="..\:/Kuliah/Semester 7/PBP/Guided/GD1/UGD/app/src/main/res/layout/activity_home.xml" value="0.264" />
         <entry key="..\:/Kuliah/Semester 7/PBP/Guided/GD1/UGD/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
         <entry key="..\:/Kuliah/Semester 7/PBP/Guided/GD1/UGD/app/src/main/res/layout/activity_register.xml" value="0.22826086956521738" />
-        <entry key="..\:/Kuliah/Semester 7/PBP/Guided/GD1/UGD/app/src/main/res/layout/fragment_donatur.xml" value="0.10989583333333333" />
-        <entry key="..\:/Kuliah/Semester 7/PBP/Guided/GD1/UGD/app/src/main/res/layout/fragment_home.xml" value="0.1852355072463768" />
-        <entry key="..\:/Kuliah/Semester 7/PBP/Guided/GD1/UGD/app/src/main/res/layout/rv_donasi.xml" value="0.25" />
-        <entry key="..\:/Kuliah/Semester 7/PBP/Guided/GD1/UGD/app/src/main/res/layout/rv_home.xml" value="0.2" />
-        <entry key="..\:/Kuliah/Semester 7/PBP/Guided/GD1/UGD/app/src/main/res/layout/rv_item_donatur.xml" value="0.25" />
-        <entry key="..\:/Kuliah/Semester 7/PBP/Guided/GD1/UGD/app/src/main/res/menu/home_menu.xml" value="0.264" />
-        <entry key="..\:/Kuliah/Semester 7/PBP/Guided/GD1/UGD/app/src/main/res/menu/navigasi_bawah.xml" value="0.1" />
         <entry key="..\:/Users/62811/AndroidStudioProjects/UGD/app/src/main/res/drawable/button_bg.xml" value="0.2535" />
         <entry key="..\:/Users/62811/AndroidStudioProjects/UGD/app/src/main/res/drawable/circle.xml" value="0.2365" />
+        <entry key="..\:/Users/62811/AndroidStudioProjects/UGD/app/src/main/res/drawable/ic_baseline_remove_red_eye_24.xml" value="0.138" />
         <entry key="..\:/Users/62811/AndroidStudioProjects/UGD/app/src/main/res/drawable/ic_user_24.xml" value="0.2365" />
-        <entry key="..\:/Users/62811/AndroidStudioProjects/UGD/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/62811/AndroidStudioProjects/UGD/app/src/main/res/layout/activity_home.xml" value="0.20863616930312098" />
+        <entry key="..\:/Users/62811/AndroidStudioProjects/UGD/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/62811/AndroidStudioProjects/UGD/app/src/main/res/layout/activity_register.xml" value="0.264" />
+        <entry key="..\:/Users/62811/AndroidStudioProjects/UGD/app/src/main/res/layout/fragment_donasi.xml" value="0.264" />
+        <entry key="..\:/Users/62811/AndroidStudioProjects/UGD/app/src/main/res/layout/fragment_donatur.xml" value="0.20863616930312098" />
+        <entry key="..\:/Users/62811/AndroidStudioProjects/UGD/app/src/main/res/layout/fragment_home.xml" value="0.19709277469003847" />
+        <entry key="..\:/Users/62811/AndroidStudioProjects/UGD/app/src/main/res/layout/rv_donasi.xml" value="0.10008357709987463" />
+        <entry key="..\:/Users/62811/AndroidStudioProjects/UGD/app/src/main/res/layout/rv_donatur.xml" value="0.1" />
+        <entry key="..\:/Users/62811/AndroidStudioProjects/UGD/app/src/main/res/layout/rv_home.xml" value="0.20778110303548525" />
+        <entry key="..\:/Users/62811/AndroidStudioProjects/UGD/app/src/main/res/layout/rv_item_donasi.xml" value="0.536" />
+        <entry key="..\:/Users/62811/AndroidStudioProjects/UGD/app/src/main/res/layout/rv_item_donatur.xml" value="0.10196406184705391" />
+        <entry key="..\:/Users/62811/AndroidStudioProjects/UGD/app/src/main/res/menu/home_menu.xml" value="0.2030392570704939" />
+        <entry key="..\:/Users/62811/AndroidStudioProjects/UGD/app/src/main/res/menu/navigasi_bawah.xml" value="0.20863616930312098" />
       </map>
     </option>
   </component>
