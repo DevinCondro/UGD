@@ -3,11 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Kuliah/Semester 7/PBP/UGD/UGD/app/src/main/res/layout/activity_home.xml" value="0.1" />
-        <entry key="..\:/Kuliah/Semester 7/PBP/UGD/UGD/app/src/main/res/layout/fragment_home.xml" value="0.1" />
-        <entry key="..\:/Kuliah/Semester 7/PBP/UGD/UGD/app/src/main/res/layout/rv_item_donatur.xml" value="0.1" />
-        <entry key="..\:/Kuliah/Semester 7/PBP/UGD/UGD/app/src/main/res/menu/home_menu.xml" value="0.1" />
-        <entry key="..\:/Kuliah/Semester 7/PBP/UGD/UGD/app/src/main/res/menu/navigasi_bawah.xml" value="0.1" />
+        <entry key="..\:/Users/62811/AndroidStudioProjects/UGD/app/src/main/res/layout/activity_home.xml" value="0.10948905109489052" />
+        <entry key="..\:/Users/62811/AndroidStudioProjects/UGD/app/src/main/res/layout/activity_register.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/62811/AndroidStudioProjects/UGD/app/src/main/res/layout/fragment_donatur.xml" value="0.12360688956433637" />
+        <entry key="..\:/Users/62811/AndroidStudioProjects/UGD/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Users/62811/AndroidStudioProjects/UGD/app/src/main/res/layout/rv_item_donatur.xml" value="0.6" />
       </map>
     </option>
   </component>
