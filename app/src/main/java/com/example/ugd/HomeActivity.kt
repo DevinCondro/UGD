@@ -8,14 +8,25 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class HomeActivity : AppCompatActivity() {
+
+    private lateinit var navigation: BottomNavigationView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
         changeFragment(FragmentHome())
+        init()
+        navigationListener()
     }
+
+    private fun init() {
+        navigation = findViewById(R.id.navigasiBawah)
+    }
+
 
     fun changeFragment(fragment: Fragment?){
         if (fragment != null){
@@ -26,6 +37,26 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
+    private fun navigationListener() {
+        navigation.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.Menu -> {
+                    changeFragment(FragmentHome())
+                    return@setOnItemSelectedListener true
+                }
+                R.id.donatur1 -> {
+                    changeFragment(FragmentDonatur())
+                    return@setOnItemSelectedListener true
+                }
+                R.id.setting -> {
+                    return@setOnItemSelectedListener true
+                }
+            }
+            false
+        }
+    }
+
+    /*
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val menuInflater = MenuInflater(this)
         menuInflater.inflate(R.menu.navigasi_bawah, menu)
@@ -48,6 +79,7 @@ class HomeActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
+     */
 
 
 
