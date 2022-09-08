@@ -28,12 +28,12 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val menuInflater = MenuInflater(this)
-        menuInflater.inflate(R.menu.home_menu, menu)
+        menuInflater.inflate(R.menu.navigasi_bawah, menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(item.itemId == R.id.donatur){
+        if(item.itemId == R.id.donatur1){
             changeFragment(FragmentDonatur())
         } else {
             val builder: AlertDialog.Builder = AlertDialog.Builder(this@HomeActivity)

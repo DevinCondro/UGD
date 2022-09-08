@@ -6,7 +6,7 @@ class Donatur (var namaDonatur: String, var jumlahDonasi: Double){
         @JvmField
         var listOfDonatur = arrayOf(
             Donatur("Wendy", 100.00),
-            Donatur("Eric", 35.00),
+            Donatur("Alfa", 35.00),
             Donatur("Matius", 1000.00),
             Donatur("Yosi", 500.00),
             Donatur("Devin", 2000.00),

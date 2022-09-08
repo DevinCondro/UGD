@@ -2,27 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/donate"
-        android:title="DONATE"
-        android:icon="@drawable/ic_card_giftcard_24"/>
-
+        android:id="@+id/Menu"
+        android:title="@string/home"
+        android:icon="@drawable/ic_home_24"/>
     <item
-        android:id="@+id/inbox"
-        android:title="MAIL"
-        android:icon="@drawable/ic_mail_24"/>
-
-    <item
-        android:id="@+id/profile"
-        android:title="PROFILE"
-        android:icon="@drawable/ic_user_24"/>
+        android:id="@+id/donatur1"
+        android:title="@string/donatur"
+        android:icon="@drawable/ic_person_pin_circle_24"/>
 
     <item
         android:id="@+id/setting"
-        android:title="SETTING"
+        android:title="@string/setting"
         android:icon="@drawable/ic_settings_24"/>
 
-    <item
-        android:id="@+id/home"
-        android:title="HOME" />
 
 </menu>
