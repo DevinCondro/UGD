@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Kuliah/Semester 7/PBP/UGD/UGD/app/src/main/res/layout/activity_home.xml" value="0.1" />
+        <entry key="..\:/Kuliah/Semester 7/PBP/UGD/UGD/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Kuliah/Semester 7/PBP/UGD/UGD/app/src/main/res/layout/rv_item_donatur.xml" value="0.1" />
+        <entry key="..\:/Kuliah/Semester 7/PBP/UGD/UGD/app/src/main/res/menu/home_menu.xml" value="0.1" />
         <entry key="..\:/Kuliah/Semester 7/PBP/UGD/UGD/app/src/main/res/menu/navigasi_bawah.xml" value="0.1" />
       </map>
     </option>

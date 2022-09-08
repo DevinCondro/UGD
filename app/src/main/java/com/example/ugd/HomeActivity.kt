@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -13,6 +14,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var navigation: BottomNavigationView
+    private lateinit var tvText : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +26,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun init() {
+        tvText = findViewById(R.id.tv_text)
         navigation = findViewById(R.id.navigasiBawah)
     }
 
@@ -41,10 +44,12 @@ class HomeActivity : AppCompatActivity() {
         navigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.Menu -> {
+                    tvText.text = item.title
                     changeFragment(FragmentHome())
                     return@setOnItemSelectedListener true
                 }
                 R.id.donatur1 -> {
+                    tvText.text = null
                     changeFragment(FragmentDonatur())
                     return@setOnItemSelectedListener true
                 }
