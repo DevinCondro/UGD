@@ -102,8 +102,6 @@ class MainActivity : AppCompatActivity() {
 
         if(intent.getBundleExtra("register") != null) {
             mBundle = intent.getBundleExtra("register")
-
-            // Mengambil data dari bundle
             Nama = mBundle?.getString("username")!!
             Email = mBundle?.getString("email")!!
             TanggalLahir = mBundle?.getString("Tanggallahir")!!
