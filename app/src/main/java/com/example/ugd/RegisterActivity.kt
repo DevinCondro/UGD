@@ -39,7 +39,12 @@ class RegisterActivity : AppCompatActivity() {
         btnSignUp.setOnClickListener (View.OnClickListener{
             val intent = Intent(this, MainActivity::class.java)
             val mBundle = Bundle()
-            var error = true
+            val username: String = registerUsername.getText().toString()
+            val password: String = registerPassword.getText().toString()
+            val email: String = registerEmail.getText().toString()
+            val tanggal: String = registerTanggal.getText().toString()
+            val telfon: String = registerTelp.getText().toString()
+            var checkRegister = false
 
             mBundle.putString("username", registerUsername.text.toString())
             mBundle.putString("email", registerEmail.text.toString())
@@ -47,10 +52,29 @@ class RegisterActivity : AppCompatActivity() {
             mBundle.putString("Tanggallahir", registerTanggal.text.toString())
             mBundle.putString("NoHandphone", registerTelp.text.toString())
 
-            intent.putExtra("register", mBundle)
-            Snackbar.make(registerLayout, "Sign Up Success", Snackbar.LENGTH_LONG).show()
+            if(username.isEmpty()){
+                registerUsername.setError("Username must be filled with text")
+                checkRegister = false
+            }
+            if(password.isEmpty()){
+                registerPassword.setError("Password must be filled with text")
+                checkRegister = false
+            }
+            if(email.isEmpty()){
+                registerEmail.setError("Email must be filled with text")
+                checkRegister = false
+            }
+            if(tanggal.isEmpty()){
+                registerTanggal.setError("Tanggal must be filled with text")
+                checkRegister = false
+            }
+            if(telfon.isEmpty()){
+                registerTelp.setError("No Telp must be filled with text")
+                checkRegister = false
+            }
 
-            if(!error)return@OnClickListener
+            intent.putExtra("register", mBundle)
+            if(!checkRegister)return@OnClickListener
             startActivity(intent)
         })
 
