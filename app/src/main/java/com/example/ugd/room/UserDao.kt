@@ -5,7 +5,7 @@ import androidx.room.*
 @Dao
 interface UserDao {
     @Insert
-    suspend fun addUser(user: User)
+    suspend fun addNote(user: User)
     @Update
     suspend fun updateUser(user: User)
     @Delete

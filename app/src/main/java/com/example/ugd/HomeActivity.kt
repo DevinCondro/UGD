@@ -53,7 +53,7 @@ class HomeActivity : AppCompatActivity() {
                     changeFragment(FragmentDonatur())
                     return@setOnItemSelectedListener true
                 }
-                R.id.profile -> {
+                R.id.Profil -> {
                     return@setOnItemSelectedListener true
                 }
             }
