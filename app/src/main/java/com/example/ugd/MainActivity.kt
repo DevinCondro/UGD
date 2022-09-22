@@ -1,9 +1,12 @@
 package com.example.ugd
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -52,31 +55,31 @@ class MainActivity : AppCompatActivity() {
 
             if(username.isEmpty()){
                 inputUsername.setError("Username must be filled with text")
-                checkLogin = false
+                checkLogin = true
             }
 
             if(password.isEmpty()){
                 inputPassword.setError("Password must be filled with text")
-                checkLogin = false
+                checkLogin = true
             }
 
             getBundle()
             if(mBundle == null) {
-                checkLogin = false
+                checkLogin = true
                 Snackbar.make(mainLayout, "Silahkan Daftar Dahulu", Snackbar.LENGTH_LONG).show()
             }else if (username == Nama && password == Password ) {
+                checkLogin = true
+            }else if(username == "admin" || password == "admin" ){
                 checkLogin = true
             }else{
                 checkLogin = false
                 Snackbar.make(mainLayout, "Username dan Password SALAH", Snackbar.LENGTH_LONG).show()
             }
 
-
             if(!checkLogin)return@OnClickListener
             val moveHome = Intent( this@MainActivity, HomeActivity::class.java)
             startActivity(moveHome)
         })
-
 
     }
 

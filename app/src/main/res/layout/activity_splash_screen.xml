@@ -13,7 +13,6 @@
         android:id="@+id/logo_splash"
         android:layout_width="250dp"
         android:layout_height="250dp"
-        android:layout_marginTop="100dp"
         android:layout_centerInParent="true"
         android:src="@drawable/logo" />
 
@@ -21,12 +20,13 @@
         android:id="@+id/et_splash_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
         android:layout_above="@id/logo_splash"
-        android:textColor="@color/white"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="11dp"
         android:text="AyoPeduli"
+        android:textColor="@color/white"
         android:textSize="40sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/et_splash"
@@ -34,10 +34,27 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/logo_splash"
         android:layout_centerInParent="true"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="60dp"
         android:text="Selamat Datang"
         android:textColor="@color/white"
         android:textSize="30sp"
         android:textStyle="bold" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_splash"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="45dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/progressBar"
+        android:layout_marginTop="10dp"
+        android:layout_centerInParent="true"
+        android:text="Created By Kelompok 2"
+        android:textStyle="italic"/>
 
 </RelativeLayout>

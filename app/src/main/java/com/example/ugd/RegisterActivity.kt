@@ -74,7 +74,9 @@ class RegisterActivity : AppCompatActivity() {
             }
 
             intent.putExtra("register", mBundle)
-            if(!checkRegister)return@OnClickListener
+            if(!checkRegister){
+                val intent = Intent(this, MainActivity::class.java)
+            }
             startActivity(intent)
         })
 
