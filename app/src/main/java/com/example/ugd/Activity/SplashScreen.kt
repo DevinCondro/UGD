@@ -1,13 +1,12 @@
-package com.example.ugd
+package com.example.ugd.Activity
 
 
-import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Handler
-import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import com.example.ugd.R
 
 
 class SplashScreen : AppCompatActivity() {

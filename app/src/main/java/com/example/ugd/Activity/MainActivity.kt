@@ -1,4 +1,4 @@
-package com.example.ugd
+package com.example.ugd.Activity
 
 import android.content.Context
 import android.content.Intent
@@ -13,10 +13,15 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.example.ugd.R
+import com.google.android.material.textfield.TextInputEditText
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
 
+    var editUser: EditText? = null
+    lateinit var userEdit: TextInputEditText
     private lateinit var inputUsername: TextInputLayout
     private lateinit var inputPassword: TextInputLayout
     private lateinit var mainLayout: ConstraintLayout
@@ -26,6 +31,9 @@ class MainActivity : AppCompatActivity() {
     lateinit var TanggalLahir: String
     lateinit var Email: String
     lateinit var Handphone: String
+    private val myPreference = "myPref"
+    private val name = "nameKey"
+    var sharedPreferences: SharedPreferences? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +46,11 @@ class MainActivity : AppCompatActivity() {
         mainLayout = findViewById(R.id.mainLayout)
         val btnRegister = findViewById<Button>(R.id.btnRegister)
         val btnLogin = findViewById<Button>(R.id.btnLogin)
+        editUser = findViewById(R.id.etUser)
+        sharedPreferences = getSharedPreferences(myPreference, Context.MODE_PRIVATE)
+        if(sharedPreferences!!.contains(name)){
+            editUser?.setText(sharedPreferences!!.getString(name, ""))
+        }
 
         btnRegister.setOnClickListener{
             val intent = Intent(this, RegisterActivity::class.java)
@@ -81,6 +94,25 @@ class MainActivity : AppCompatActivity() {
             startActivity(moveHome)
         })
 
+    }
+
+    fun saveData(view: View){
+        val strName: String = editUser?.text.toString().trim()
+        val editor: SharedPreferences.Editor = sharedPreferences!!.edit()
+        editor.putString(name, strName)
+        editor.apply()
+        Toast.makeText(baseContext, "Saved", Toast.LENGTH_SHORT).show()
+    }
+
+    fun readData(view: View){
+        userEdit = findViewById(R.id.username)
+        var strName: String = editUser?.text.toString().trim()
+        strName = sharedPreferences!!.getString(name, "")!!
+        sharedPreferences = getSharedPreferences(myPreference, Context.MODE_PRIVATE)
+        if(sharedPreferences!!.contains(name)){
+            userEdit.text
+        }
+        Toast.makeText(baseContext, "Data Retrieved", Toast.LENGTH_SHORT).show()
     }
 
     override fun onBackPressed() {

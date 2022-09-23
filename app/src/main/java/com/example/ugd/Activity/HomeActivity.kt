@@ -1,15 +1,13 @@
-package com.example.ugd
+package com.example.ugd.Activity
 
-import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
-import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import com.example.ugd.Fragment.FragmentDonatur
+import com.example.ugd.Fragment.FragmentHome
+import com.example.ugd.Fragment.FragmentProfile
+import com.example.ugd.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class HomeActivity : AppCompatActivity() {
@@ -55,6 +53,8 @@ class HomeActivity : AppCompatActivity() {
                     return@setOnItemSelectedListener true
                 }
                 R.id.Profil -> {
+                    tvText.text = null
+                    changeFragment(FragmentProfile())
                     return@setOnItemSelectedListener true
                 }
             }

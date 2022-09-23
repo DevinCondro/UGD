@@ -1,4 +1,4 @@
-package com.example.ugd
+package com.example.ugd.Fragment
 
 import androidx.fragment.app.Fragment
 import android.os.Bundle
@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.ugd.R
+import com.example.ugd.RVDonaturAdapter
 import com.example.ugd.entity.Donatur
 
 class FragmentDonatur : Fragment(){
@@ -24,9 +26,9 @@ class FragmentDonatur : Fragment(){
         val layoutManager = LinearLayoutManager(context)
         val adapter : RVDonaturAdapter = RVDonaturAdapter(Donatur.listOfDonatur)
 
-        val rvDonasi : RecyclerView = view.findViewById(R.id.rv_donatur)
-        rvDonasi.layoutManager = layoutManager
-        rvDonasi.setHasFixedSize(true)
-        rvDonasi.adapter = adapter
+        val rvDonatur : RecyclerView = view.findViewById(R.id.rv_donatur)
+        rvDonatur.layoutManager = layoutManager
+        rvDonatur.setHasFixedSize(true)
+        rvDonatur.adapter = adapter
     }
 }

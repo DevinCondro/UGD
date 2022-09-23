@@ -4,14 +4,52 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/background_home"
-    tools:context=".FragmentHome">
+    tools:context=".Fragment.FragmentHome">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_home"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/activity_home"/>
+
+    <ImageView
+        android:id="@+id/iv_circle"
+        android:layout_width="271dp"
+        android:layout_height="287dp"
+        android:layout_marginStart="-80dp"
+        android:layout_marginTop="-80dp"
+        android:src="@drawable/circle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/blue1" />
+
+    <ImageView
+        android:layout_width="370dp"
+        android:layout_height="290dp"
+        android:layout_marginTop="-180dp"
+        android:src="@drawable/circle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/blue1" />
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginEnd="-100dp"
+        android:layout_marginBottom="-40dp"
+        android:src="@drawable/circle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@color/blue1" />
+
+    <ImageView
+        android:layout_width="320dp"
+        android:layout_height="320dp"
+        android:layout_marginBottom="-240dp"
+        android:src="@drawable/circle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@color/blue1" />
 
     <TextView
         android:layout_width="wrap_content"

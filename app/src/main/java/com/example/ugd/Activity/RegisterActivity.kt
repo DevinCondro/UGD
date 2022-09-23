@@ -1,4 +1,4 @@
-package com.example.ugd
+package com.example.ugd.Activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -8,35 +8,34 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.example.ugd.R
+import com.example.ugd.databinding.ActivityRegisterBinding
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 class RegisterActivity : AppCompatActivity() {
 
-    private lateinit var registerUsername: TextInputEditText
-    private lateinit var registerPassword: TextInputEditText
-    private lateinit var registerEmail: TextInputEditText
-    private lateinit var registerTanggal : TextInputEditText
-    private lateinit var registerTelp : TextInputEditText
-    private lateinit var registerLayout: ConstraintLayout
+    private lateinit var binding: ActivityRegisterBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register)
+        binding = ActivityRegisterBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
         setTitle("Register User")
 
-        registerUsername = findViewById(R.id.etUsername)
-        registerPassword = findViewById(R.id.etPassword)
-        registerEmail = findViewById(R.id.etEmail)
-        registerTanggal = findViewById(R.id.etTanggal)
-        registerTelp = findViewById(R.id.etPhone)
-        registerLayout = findViewById(R.id.registerLayout)
-        val btnCancel: Button = findViewById(R.id.btnCancel)
-        val btnSignUp: Button = findViewById(R.id.btnSignUp)
+        var btnSignUp = binding.btnSignUp
+        var btnCancel = binding.btnCancel
+        var registerUsername = binding.etUsername
+        var registerPassword = binding.etPassword
+        var registerEmail = binding.etEmail
+        var registerTanggal = binding.etTanggal
+        var registerTelp = binding.etPhone
 
-        btnSignUp.setOnClickListener (View.OnClickListener{
+        binding.btnSignUp.setOnClickListener (View.OnClickListener{
             val intent = Intent(this, MainActivity::class.java)
             val mBundle = Bundle()
             val username: String = registerUsername.getText().toString()
@@ -56,28 +55,30 @@ class RegisterActivity : AppCompatActivity() {
                 registerUsername.setError("Username must be filled with text")
                 checkRegister = false
             }
-            if(password.isEmpty()){
+            else if(password.isEmpty()){
                 registerPassword.setError("Password must be filled with text")
                 checkRegister = false
             }
-            if(email.isEmpty()){
+            else if(email.isEmpty()){
                 registerEmail.setError("Email must be filled with text")
                 checkRegister = false
             }
-            if(tanggal.isEmpty()){
+            else if(tanggal.isEmpty()){
                 registerTanggal.setError("Tanggal must be filled with text")
                 checkRegister = false
             }
-            if(telfon.isEmpty()){
+            else if(telfon.isEmpty()){
                 registerTelp.setError("No Telp must be filled with text")
                 checkRegister = false
             }
+            else{
+                checkRegister = true
+            }
 
             intent.putExtra("register", mBundle)
-            if(!checkRegister){
-                val intent = Intent(this, MainActivity::class.java)
-            }
-            startActivity(intent)
+            if(!checkRegister)return@OnClickListener
+            val moveHome = Intent( this@RegisterActivity, MainActivity::class.java)
+            startActivity(moveHome)
         })
 
         btnCancel.setOnClickListener{
@@ -87,7 +88,7 @@ class RegisterActivity : AppCompatActivity() {
             registerTanggal.setText("")
             registerTelp.setText("")
 
-            Snackbar.make(registerLayout, "Text Cleared Success", Snackbar.LENGTH_LONG).show()
+            Snackbar.make(mainLayout, "Text Cleared Success", Snackbar.LENGTH_LONG).show()
         }
 
     }

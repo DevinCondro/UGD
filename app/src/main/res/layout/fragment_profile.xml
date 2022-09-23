@@ -1,16 +1,257 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/layout_fragment_profile"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".Fragment.FragmentProfile"
+    tools:layout_editor_absoluteX="5dp"
+    tools:layout_editor_absoluteY="0dp">
+
+    <ImageView
+        android:id="@+id/iv_circle"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="-80dp"
+        android:layout_marginTop="-80dp"
+        android:src="@drawable/circle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/blue1" />
+
+    <ImageView
+        android:layout_width="260dp"
+        android:layout_height="260dp"
+        android:layout_marginTop="-180dp"
+        android:src="@drawable/circle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/blue1" />
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginEnd="-100dp"
+        android:layout_marginBottom="-40dp"
+        android:src="@drawable/circle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@color/blue1" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="320dp"
+        android:layout_height="320dp"
+        android:layout_marginBottom="-240dp"
+        android:src="@drawable/circle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@color/blue1" />
 
 
-    <!-- TODO: Update blank fragment layout -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/layout_profile"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:listitem="@layout/fragment_profile" />
+    <ImageView
+        android:id="@+id/ic_user_24"
+        android:layout_width="160dp"
+        android:layout_height="151dp"
+        android:layout_marginTop="50dp"
+        android:padding="25dp"
+        android:src="@drawable/ic_user_24"
+        app:layout_constraintBottom_toTopOf="@+id/namaLengkap"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/textProfile"
+        android:layout_width="398dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="168dp"
+        android:gravity="center"
+        android:text="Profile"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/namaLengkap"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/editProfil"
+        android:layout_width="384dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="208dp"
+        android:text="Edit Profil"
+        android:textColor="#585858"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toTopOf="@+id/namaLengkap"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="196dp" />
+
+    <ImageView
+        android:id="@+id/icon_edit_24"
+        android:layout_width="70dp"
+        android:layout_height="73dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="188dp"
+        android:padding="25dp"
+        android:src="@drawable/ic__edit"
+        app:layout_constraintEnd_toStartOf="@+id/editProfil"
+        app:layout_constraintHorizontal_bias="0.642"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/phonenumber"
+        android:layout_width="324dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="24dp"
+        android:text="0821********"
+        android:textColor="@color/black"
+        android:textSize="23dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputemail"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/nama"
+        android:layout_width="324dp"
+        android:layout_height="44dp"
+        android:text="Michael Jordan"
+        android:textColor="@color/black"
+        android:textSize="23dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="308dp" />
+
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="324dp"
+        android:layout_height="44dp"
+        android:text="Email"
+        android:textColor="#585858"
+        android:textSize="23dp"
+        app:layout_constraintBottom_toTopOf="@+id/inputemail"
+        app:layout_constraintTop_toBottomOf="@+id/nama"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="44dp" />
+
+    <TextView
+        android:id="@+id/inputemail"
+        android:layout_width="324dp"
+        android:layout_height="44dp"
+        android:text="Jordan@gmail.com"
+        android:textColor="@color/black"
+        android:textSize="23dp"
+        app:layout_constraintBottom_toTopOf="@+id/Inputphonenumber"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/Inputphonenumber"
+        android:layout_width="324dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="72dp"
+        android:text="Phone Number"
+        android:textColor="#585858"
+        android:textSize="23dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nama"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/Alamat"
+        android:layout_width="324dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="16dp"
+        android:text="Tanggal Lahir"
+        android:textColor="#585858"
+        android:textSize="23dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phonenumber"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/InputtglLahir"
+        android:layout_width="324dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="27dp"
+        android:text="05 Juli 2002"
+        android:textColor="@color/black"
+        android:textSize="23dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/Alamat"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/TglLahir"
+        android:layout_width="324dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="8dp"
+        android:text="Alamat"
+        android:textColor="#585858"
+        android:textSize="23dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/InputtglLahir"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/Inputalamat"
+        android:layout_width="324dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="33dp"
+        android:text="Jl. Ahmad Yani No.300"
+        android:textColor="@color/black"
+        android:textSize="23dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/TglLahir"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/namaLengkap"
+        android:layout_width="324dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="20dp"
+        android:text="Nama Lengkap"
+        android:textColor="#585858"
+        android:textSize="23dp"
+        app:layout_constraintTop_toBottomOf="@+id/icon_edit_24"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="44dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnLogout"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="322dp"
+        android:layout_height="58dp"
+        android:layout_weight="1"
+        android:text="Log out"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Inputalamat"
+        tools:ignore="MissingConstraints" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

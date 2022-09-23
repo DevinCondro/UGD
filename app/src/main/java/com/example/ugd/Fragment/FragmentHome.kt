@@ -1,4 +1,4 @@
-package com.example.ugd
+package com.example.ugd.Fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.ugd.entity.Donasi
+import com.example.ugd.R
 
 class FragmentHome : Fragment(){
     override fun onCreateView(

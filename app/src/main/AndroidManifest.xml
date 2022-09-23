@@ -17,7 +17,7 @@
             android:name=".RVProfileAdapter"
             android:exported="false" />
         <activity
-            android:name=".SplashScreen"
+            android:name=".Activity.SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,13 +26,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".HomeActivity"
+            android:name=".Activity.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".Activity.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Activity.MainActivity"
             android:exported="true"></activity>
     </application>
 
