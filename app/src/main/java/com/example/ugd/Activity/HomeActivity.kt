@@ -1,9 +1,13 @@
 package com.example.ugd.Activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.example.ugd.Fragment.FragmentDonasi
 import com.example.ugd.Fragment.FragmentDonatur
 import com.example.ugd.Fragment.FragmentHome
 import com.example.ugd.Fragment.FragmentProfile
@@ -39,22 +43,26 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
+    fun changeView(view: View?){
+
+    }
     private fun navigationListener() {
         navigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.Menu -> {
-                    tvText.text = item.title
                     changeFragment(FragmentHome())
                     return@setOnItemSelectedListener true
                 }
                 R.id.donatur1 -> {
-                    tvText.text = null
                     changeFragment(FragmentDonatur())
                     return@setOnItemSelectedListener true
                 }
                 R.id.Profil -> {
-                    tvText.text = null
                     changeFragment(FragmentProfile())
+                    return@setOnItemSelectedListener true
+                }
+                R.id.Tambah -> {
+                    setContentView(R.layout.activity_donasi)
                     return@setOnItemSelectedListener true
                 }
             }

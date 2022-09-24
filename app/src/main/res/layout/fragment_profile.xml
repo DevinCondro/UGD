@@ -88,8 +88,7 @@
         android:text="Edit Profil"
         android:textColor="#585858"
         android:textSize="18dp"
-        app:layout_constraintBottom_toTopOf="@+id/namaLengkap"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textProfile"
         app:layout_constraintVertical_bias="0.1"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="196dp" />
