@@ -1,26 +1,25 @@
 package com.example.ugd.Activity
 
-import android.app.NotificationChannel
-import android.app.NotificationManager
-import android.app.PendingIntent
+import android.app.*
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.drawable.Icon
+import android.media.RingtoneManager
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.toBitmap
 import com.example.ugd.PushNotification.NotificationReceiver
 import com.example.ugd.R
 import com.example.ugd.databinding.ActivityRegisterBinding
 import com.google.android.material.snackbar.Snackbar
-import com.google.android.material.textfield.TextInputEditText
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -29,6 +28,7 @@ class RegisterActivity : AppCompatActivity() {
     private var binding: ActivityRegisterBinding? = null
     private val CHANNEL_ID = "channel_notification"
     private val notificationId = 101
+    private val KEY_TEXT_REPLY = "key_text_reply"
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -135,19 +135,48 @@ class RegisterActivity : AppCompatActivity() {
         val pendingIntent: PendingIntent = PendingIntent.getActivity(this, 0, intent, 0)
 
         val broadcastIntent : Intent = Intent(this, NotificationReceiver::class.java)
-        broadcastIntent.putExtra("toastMessage", binding?.etEmail?.setText("Berhasil Sign Up").toString())
+        broadcastIntent.putExtra("toastMessage", binding?.etPhone?.setText("Berhasil Sign Up").toString())
         val actionIntent = PendingIntent.getBroadcast(this, 0, broadcastIntent, PendingIntent.FLAG_UPDATE_CURRENT)
+        val defaultSoundUri= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+        val bigPictureBitmap = ContextCompat.getDrawable(this, R.drawable.profile)?.toBitmap()
+        val replyLabel = "Enter your reply here"
+        val remoteInput = RemoteInput.Builder(KEY_TEXT_REPLY)
+            .setLabel(replyLabel)
+            .build()
+
+        val resultIntent = Intent(this, RegisterActivity::class.java)
+
+        val resultPendingIntent = PendingIntent.getActivity(
+            this,
+            0,
+            resultIntent,
+            PendingIntent.FLAG_UPDATE_CURRENT
+        )
+
+        val icon = Icon.createWithResource(this@RegisterActivity,
+            android.R.drawable.ic_dialog_info)
+
+        val replyAction = Notification.Action.Builder(
+            icon,
+            "Reply", resultPendingIntent)
+            .addRemoteInput(remoteInput)
+            .build()
 
         val builder = NotificationCompat.Builder(this, CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_baseline_notifications_24)
+            .setSound(defaultSoundUri)
+            .setStyle(
+                NotificationCompat.BigPictureStyle()
+                    .bigPicture(bigPictureBitmap)
+            )
             .setContentTitle(binding?.etUsername?.text.toString())
-            .setContentText("Berhasil Sign Up")
+            .setContentText("Berhasil Sign Up Account")
             .setCategory(NotificationCompat.CATEGORY_MESSAGE)
             .setColor(Color.BLUE)
             .setAutoCancel(true)
             .setOnlyAlertOnce(true)
             .setContentIntent(pendingIntent)
-            .addAction(R.mipmap.ic_launcher, "Toast", actionIntent)
+            .addAction(R.drawable.ic_reply_24, "Reply", actionIntent)
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
 
         with(NotificationManagerCompat.from(this)){

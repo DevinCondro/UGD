@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    var editUser: EditText? = null
+    lateinit var editUser: EditText
     lateinit var userEdit: TextInputEditText
     private lateinit var inputUsername: TextInputLayout
     private lateinit var inputPassword: TextInputLayout
@@ -82,8 +82,6 @@ class MainActivity : AppCompatActivity() {
                 Snackbar.make(mainLayout, "Silahkan Daftar Dahulu", Snackbar.LENGTH_LONG).show()
             }else if (username == Nama && password == Password ) {
                 checkLogin = true
-            }else if(username == "admin" || password == "admin" ){
-                checkLogin = true
             }else{
                 checkLogin = false
                 Snackbar.make(mainLayout, "Username dan Password SALAH", Snackbar.LENGTH_LONG).show()
@@ -134,7 +132,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun getBundle(){
-
         if(intent.getBundleExtra("register") != null) {
             mBundle = intent.getBundleExtra("register")
             Nama = mBundle?.getString("username")!!
