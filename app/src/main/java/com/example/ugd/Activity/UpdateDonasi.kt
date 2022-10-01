@@ -6,7 +6,6 @@ import android.widget.Toast
 import com.example.ugd.R
 import com.example.ugd.room.*
 import kotlinx.android.synthetic.main.activity_update_donasi.*
-import kotlinx.android.synthetic.main.activity_update_profil.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -33,7 +32,7 @@ class UpdateDonasi : AppCompatActivity() {
         }
     }
     private fun setupListener() {
-        btnUpdate.setOnClickListener {
+        button_update.setOnClickListener {
             CoroutineScope(Dispatchers.IO).launch {
                 db.donasiDao().updateDonasi(
                     Donasi(donasiId, editJudul.text.toString(),

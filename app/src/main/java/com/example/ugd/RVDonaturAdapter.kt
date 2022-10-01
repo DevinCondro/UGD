@@ -18,6 +18,7 @@ class RVDonaturAdapter(private val data: Array<Donatur>) : RecyclerView.Adapter<
         val currentItem = data[position]
         holder.tv_namaDonatur.text = currentItem.namaDonatur
         holder.tv_jumlahDonasi.text = "Rp. ${currentItem.jumlahDonasi}"
+        holder.tv_gender.text = currentItem.gender
     }
 
     override fun getItemCount(): Int {
@@ -27,5 +28,6 @@ class RVDonaturAdapter(private val data: Array<Donatur>) : RecyclerView.Adapter<
     class viewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
         val tv_namaDonatur : TextView = itemView.findViewById(R.id.tv_namaDonatur)
         val tv_jumlahDonasi: TextView = itemView.findViewById(R.id.tv_jumlahDonasi)
+        val tv_gender: TextView = itemView.findViewById(R.id.tv_gender)
     }
 }

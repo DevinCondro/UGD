@@ -1,6 +1,8 @@
 package com.example.ugd.Activity
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -18,10 +20,13 @@ class HomeActivity : AppCompatActivity() {
 
     private lateinit var navigation: BottomNavigationView
     private lateinit var tvText : TextView
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+        sharedPreferences = getSharedPreferences("Login", Context.MODE_PRIVATE)
+        setTitle("Page Donasi")
 
         changeFragment(FragmentHome())
         init()
@@ -43,9 +48,6 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
-    fun changeView(view: View?){
-
-    }
     private fun navigationListener() {
         navigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
@@ -68,5 +70,9 @@ class HomeActivity : AppCompatActivity() {
             }
             false
         }
+    }
+
+    fun getSharedPreferences() : SharedPreferences{
+        return sharedPreferences
     }
 }

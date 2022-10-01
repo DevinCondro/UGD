@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_home"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Fragment.FragmentHome">
+    tools:context=".Activity.HomeActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_home"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:listitem="@layout/activity_home"/>
 
     <ImageView
         android:id="@+id/iv_circle"
-        android:layout_width="271dp"
-        android:layout_height="287dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_marginStart="-80dp"
         android:layout_marginTop="-80dp"
         android:src="@drawable/circle"
@@ -24,8 +20,9 @@
         app:tint="@color/blue1" />
 
     <ImageView
-        android:layout_width="370dp"
-        android:layout_height="290dp"
+        android:id="@+id/imageView7"
+        android:layout_width="260dp"
+        android:layout_height="260dp"
         android:layout_marginTop="-180dp"
         android:src="@drawable/circle"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,6 +40,7 @@
         app:tint="@color/blue1" />
 
     <ImageView
+        android:id="@+id/imageView4"
         android:layout_width="320dp"
         android:layout_height="320dp"
         android:layout_marginBottom="-240dp"
@@ -52,57 +50,112 @@
         app:tint="@color/blue1" />
 
     <TextView
+        android:id="@+id/textMenu"
+        android:layout_width="251dp"
+        android:layout_height="86dp"
+        android:layout_marginTop="128dp"
+        android:text="DONASI KITA"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/homeHospital"
+        android:layout_width="69dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="4dp"
+        android:src="@drawable/logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textMenu"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textHome"
+        style="@style/TextAppearance.MaterialComponents.Subtitle1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Selamat Datang"
-        android:textSize="22dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <ImageView
-        android:id="@+id/gambar_bencana"
-        android:layout_width="322dp"
-        android:layout_height="163dp"
-        android:layout_marginTop="112dp"
-        android:src="@drawable/bencana_1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/rv_home"
-        tools:ignore="MissingConstraints" />
+        android:layout_marginTop="104dp"
+        android:text="hallo, USER"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/temuDokter"
+        app:layout_constraintTop_toTopOf="@+id/textMenu"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="69dp" />
 
     <ImageView
-        android:id="@+id/gambar_bencana_2"
-        android:layout_width="154dp"
-        android:layout_height="99dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginBottom="240dp"
-        android:background="@color/white"
-        android:src="@drawable/bencana"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/gambar_bencana_3"
-        app:layout_constraintHorizontal_bias="0.333"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gambar_bencana"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <ImageView
-        android:id="@+id/gambar_bencana_3"
-        android:layout_width="153dp"
-        android:layout_height="113dp"
-        android:layout_marginEnd="44dp"
-        android:layout_marginBottom="224dp"
+        android:id="@+id/temuDokter"
+        android:layout_width="187dp"
+        android:layout_height="132dp"
+        android:layout_marginTop="272dp"
         android:src="@drawable/bencana_2"
-        android:background="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gambar_bencana"
-        app:layout_constraintVertical_bias="0.976"
+        app:layout_constraintBottom_toTopOf="@+id/btn_details"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.066"
         tools:ignore="MissingConstraints" />
 
+    <Button
+        android:id="@+id/btn_details"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/blue_box"
+        android:scaleType="centerInside"
+        android:text="DETAILS"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:typeface="monospace"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.138"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.613" />
 
+    <Button
+        android:id="@+id/btn_details2"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/blue_box"
+        android:scaleType="centerInside"
+        android:text="DETAILS"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:typeface="monospace"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.889"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.613" />
+
+    <ImageView
+        android:id="@+id/hospital"
+        android:layout_width="169dp"
+        android:layout_height="138dp"
+        android:layout_marginTop="264dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/bencana"
+        app:layout_constraintBottom_toTopOf="@+id/btn_details2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/layout_fragment2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

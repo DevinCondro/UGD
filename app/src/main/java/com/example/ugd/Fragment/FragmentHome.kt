@@ -20,10 +20,5 @@ class FragmentHome : Fragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val layoutManager = LinearLayoutManager(context)
-
-        val rvHome : RecyclerView = view.findViewById(R.id.rv_home)
-        rvHome.layoutManager = layoutManager
-        rvHome.setHasFixedSize(true)
     }
 }

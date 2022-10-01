@@ -5,41 +5,63 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import androidx.fragment.app.FragmentTransaction
+import com.example.ugd.Activity.HomeActivity
 import com.example.ugd.R
-import com.example.ugd.RVDonaturAdapter
-import com.example.ugd.entity.Donatur
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.example.ugd.databinding.FragmentProfileBinding
+import com.example.ugd.room.UserDB
 
-class FragmentProfile : Fragment(){
+class FragmentProfile() : Fragment() {
+    // TODO: Rename and change types of parameters
+
+    private var _binding: FragmentProfileBinding? = null
+    private val binding get() = _binding!!
+
+    val db by lazy { UserDB(requireActivity()) }
+    private var userId: Int = 0
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_profile ,container, false)
+        _binding = FragmentProfileBinding.inflate(inflater, container, false)
+        val view = binding.root
+        return view
+        // Inflate the layout for this fragment
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setData()
 
-        val btnLogout: Button = view.findViewById(R.id.btnLogout)
-
-        btnLogout.setOnClickListener {
-            activity?.let { it ->
-                MaterialAlertDialogBuilder(it)
-                    .setTitle("Apakah anda ingin keluar?")
-                    .setNegativeButton("No") {dialog, which ->
-
-                    }
-                    .setPositiveButton("yes") {dialog, which ->
-                        activity?.finish()
-                    }
-                    .show()
-            }
+        binding.btnUpdate.setOnClickListener {
+            transitionFragment(FragmentEditProfile())
         }
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
+
+    private fun setData() {
+        val sharedPreferences = (activity as HomeActivity).getSharedPreferences()
+
+        val db by lazy { UserDB(activity as HomeActivity) }
+        val userDao = db.userDao()
+
+        val user = userDao.getUser(sharedPreferences.getInt("id", 0))
+        binding.viewUsername.setText(user.username)
+        binding.viewTanggal.setText(user.tanggal)
+        binding.viewEmail.setText(user.email)
+        binding.viewNomorTelepon.setText(user.telp)
+    }
+
+    private fun transitionFragment(fragment: FragmentEditProfile) {
+        val transition = requireActivity().supportFragmentManager.beginTransaction()
+        transition.replace(R.id.layout_fragment, fragment)
+            .addToBackStack(null).commit()
+        transition.hide(FragmentProfile())
+    }
+
 }
