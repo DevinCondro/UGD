@@ -102,11 +102,11 @@
 
     <Button
         android:id="@+id/btn_tambahDonasi"
-        android:layout_width="130dp"
-        android:layout_height="wrap_content"
+        android:layout_width="176dp"
+        android:layout_height="57dp"
         android:backgroundTint="@color/blue"
         android:scaleType="centerInside"
-        android:text="Donasi"
+        android:text="Buat Donasi"
         android:textColor="@color/white"
         android:textStyle="bold"
         android:typeface="monospace"
