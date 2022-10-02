@@ -1,70 +1,64 @@
 package com.example.ugd.Activity
 
 import android.content.Context
-import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.Button
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
-import com.example.ugd.Fragment.FragmentDonasi
-import com.example.ugd.Fragment.FragmentDonatur
-import com.example.ugd.Fragment.FragmentHome
-import com.example.ugd.Fragment.FragmentProfile
+import com.example.ugd.FragmentDonatur
+import com.example.ugd.FragmentHome
 import com.example.ugd.R
+import com.example.ugd.FragmentProfile
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class HomeActivity : AppCompatActivity() {
-
-    private lateinit var navigation: BottomNavigationView
-    private lateinit var tvText : TextView
+    private lateinit var navigationBottom : BottomNavigationView
+    private lateinit var textView : TextView
     private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-        sharedPreferences = getSharedPreferences("Login", Context.MODE_PRIVATE)
-        setTitle("Page Donasi")
+
+        sharedPreferences = getSharedPreferences("login", Context.MODE_PRIVATE)
+        setTitle("Ayo Donasi")
 
         changeFragment(FragmentHome())
+
         init()
-        navigationListener()
+        navListener()
+
     }
-
-    private fun init() {
-        tvText = findViewById(R.id.tv_text)
-        navigation = findViewById(R.id.navigasiBawah)
+    private fun init(){
+        textView = findViewById(R.id.textWelcome)
+        navigationBottom = findViewById(R.id.botNavigation)
     }
-
-
-    fun changeFragment(fragment: Fragment?){
-        if (fragment != null){
+    fun changeFragment(fragment: Fragment?) {
+        if (fragment != null) {
             getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.layout_fragment, fragment)
                 .commit()
         }
     }
-
-    private fun navigationListener() {
-        navigation.setOnItemSelectedListener { item ->
+    private fun navListener() {
+        navigationBottom.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.Menu -> {
+                   textView.text = item.title
                     changeFragment(FragmentHome())
                     return@setOnItemSelectedListener true
                 }
-                R.id.donatur1 -> {
+                R.id.donatur -> {
+                    textView.text = null
                     changeFragment(FragmentDonatur())
                     return@setOnItemSelectedListener true
                 }
-                R.id.Profil -> {
+                R.id.Profile -> {
+                    textView.text = null
                     changeFragment(FragmentProfile())
-                    return@setOnItemSelectedListener true
-                }
-                R.id.Tambah -> {
-                    setContentView(R.layout.activity_donasi)
                     return@setOnItemSelectedListener true
                 }
             }
@@ -72,7 +66,28 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
-    fun getSharedPreferences() : SharedPreferences{
+    override fun onBackPressed() {
+        AlertDialog.Builder(this).apply {
+            setTitle("Tolong Konfirmasi")
+            setMessage("Apakah anda yakin ingin keluar?")
+
+            setPositiveButton("Iya") { _, _ ->
+                moveTaskToBack(true)
+                android.os.Process.killProcess(android.os.Process.myPid())
+                System.exit(1)
+
+            }
+
+            setNegativeButton("Tidak"){_, _ ->
+
+            }
+
+            setCancelable(true)
+        }.create().show()
+    }
+
+    fun getSharedPreferences() : SharedPreferences {
         return sharedPreferences
     }
+
 }

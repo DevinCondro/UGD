@@ -22,10 +22,12 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tv_text"
+                android:id="@+id/textWelcome"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
+                android:fontFamily="@font/bebas_neue_bold_700"
+                android:text="Selamat Datang"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="10sp" />
@@ -34,15 +36,17 @@
     </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/navigasiBawah"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="0dp"
-        android:layout_marginEnd="0dp"
+        android:id="@+id/botNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/blue"
+        android:theme="@style/Theme.Material3.DynamicColors.Light"
+        app:itemIconTint="@color/black"
+        app:itemTextColor="@color/white"
+        app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:background="?android:attr/windowBackground"
         app:menu="@menu/navigasi_bawah" />
 
     <androidx.fragment.app.FragmentContainerView

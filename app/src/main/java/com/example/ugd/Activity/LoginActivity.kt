@@ -4,54 +4,51 @@ import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.content.SharedPreferences
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.textfield.TextInputLayout
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.ugd.R
-import com.example.ugd.room.User
 import com.example.ugd.room.UserDB
 import com.google.android.material.textfield.TextInputEditText
-import kotlinx.android.synthetic.main.activity_main.*
+import com.google.android.material.textfield.TextInputLayout
 
-
-class MainActivity : AppCompatActivity() {
-
-    lateinit var etPass: TextInputEditText
-    lateinit var etUser: TextInputEditText
+class LoginActivity : AppCompatActivity() {
     private lateinit var inputUsername: TextInputLayout
     private lateinit var inputPassword: TextInputLayout
     private lateinit var mainLayout: ConstraintLayout
+    private lateinit var editUsername : TextInputEditText
+    private lateinit var editPassword : TextInputEditText
     lateinit var mBundle: Bundle
 
     lateinit var Username: String
     lateinit var Password: String
-    lateinit var TanggalLahir: String
     lateinit var Email: String
-    lateinit var Handphone: String
-    private val myPreference = "myPref"
+    lateinit var Tanggal : String
+    lateinit var NoTelp: String
+
     private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_login)
         supportActionBar?.hide()
 
-        setTitle("User Login")
+        val db by lazy { UserDB(this) }
+        val userDao = db.userDao()
+        sharedPreferences = getSharedPreferences("login", Context.MODE_PRIVATE)
 
         inputUsername = findViewById(R.id.username)
         inputPassword = findViewById(R.id.password)
         mainLayout = findViewById(R.id.mainLayout)
-        val btnRegister = findViewById<Button>(R.id.btnRegister)
-        val btnLogin = findViewById<Button>(R.id.btnLogin)
-        etUser = findViewById(R.id.etUser)
-        etPass = findViewById(R.id.etPass)
-        sharedPreferences = getSharedPreferences(myPreference, Context.MODE_PRIVATE)
+        editUsername = findViewById(R.id.etUser)
+        editPassword = findViewById(R.id.etPass)
+
+        val btnLogin: Button = findViewById(R.id.btnLogin)
+        val btnRegister: Button = findViewById(R.id.btnRegister)
 
         getBundle()
 
@@ -70,27 +67,32 @@ class MainActivity : AppCompatActivity() {
                 checkLogin = false
             }
 
-            if(username == "admin" && password == "admin") {
+            val user = userDao.checkUser(username,password)
+            if(user !=null) {
+                sharedPreferences.edit()
+                    .putInt("id", user.id)
+                    .apply()
+
                 checkLogin = true
             }
 
             if(intent.getBundleExtra("Register") != null) {
-                if(username == Username && password == Password) {
+                if(username == user?.username && password == user.password) {
                     checkLogin = true
                 }
             }
 
-            if(checkLogin == true) {
+            if(!checkLogin) {
                 loginAlert()
                 return@OnClickListener
             }
 
-            val moveHome = Intent (this@MainActivity, HomeActivity::class.java)
+            val moveHome = Intent (this@LoginActivity, HomeActivity::class.java)
             startActivity(moveHome)
         })
 
         btnRegister.setOnClickListener(View.OnClickListener {
-            val moveRegister = Intent (this@MainActivity, RegisterActivity::class.java)
+            val moveRegister = Intent (this@LoginActivity, RegisterActivity::class.java)
             startActivity(moveRegister)
         })
 
@@ -102,8 +104,8 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(applicationContext,
                 android.R.string.no, Toast.LENGTH_SHORT).show()
         }
-        builder.setTitle("Error!")
-        builder.setMessage("Maaf, Username dan Password Salah. Tolong Cek Kembali")
+        builder.setTitle("Warning!")
+        builder.setMessage("Maaf, Username dan Password Salah. Silahkan Login Kembali")
         builder.setPositiveButton("OK", DialogInterface.OnClickListener(function = positiveButtonClick))
         builder.show()
     }
@@ -117,7 +119,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             setNegativeButton("Tidak"){_, _ ->
-                Toast.makeText(this@MainActivity, "Terima Kasih",
+                Toast.makeText(this@LoginActivity, "Terima Kasih",
                     Toast.LENGTH_LONG).show()
             }
 
@@ -125,17 +127,18 @@ class MainActivity : AppCompatActivity() {
         }.create().show()
     }
 
-        fun getBundle() {
-            if (intent.getBundleExtra("register") != null) {
-                mBundle = intent.getBundleExtra("register")!!
-                Username = mBundle.getString("username")!!
-                Email = mBundle.getString("email")!!
-                TanggalLahir = mBundle.getString("Tanggallahir")!!
-                Password = mBundle.getString("password")!!
-                Handphone = mBundle.getString("NoHandphone")!!
-                etUser.setText(Username)
-                etPass.setText(Password)
-            }
+    fun getBundle() {
+        if (intent.getBundleExtra("Register") != null) {
+            mBundle = intent.getBundleExtra("Register")!!
+            Username = mBundle.getString("username")!!
+            Tanggal = mBundle.getString("Tanggallahir")!!
+            Email = mBundle.getString("email")!!
+            NoTelp = mBundle.getString("NoHandphone")!!
+            Password = mBundle.getString("password")!!
+            editUsername.setText(Username)
+            editPassword.setText(Password)
         }
-}
+    }
 
+
+}

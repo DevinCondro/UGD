@@ -7,20 +7,26 @@
         <entry key="..\:/Users/62811/AndroidStudioProjects/UGD/UGD/app/src/main/res/layout/activity_register.xml" value="0.264" />
         <entry key="..\:/Users/62811/AndroidStudioProjects/UGD/UGD/app/src/main/res/layout/donasi_adapter.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/62811/AndroidStudioProjects/UGD/UGD/app/src/main/res/layout/fragment_donasi.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/62811/AndroidStudioProjects/UGD3_Kelompok2/app/src/main/res/layout/activity_donasi.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/62811/AndroidStudioProjects/UGD3_Kelompok2/app/src/main/res/layout/activity_home.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/62811/AndroidStudioProjects/UGD3_Kelompok2/app/src/main/res/drawable-v24/ic_delete_24.xml" value="0.1" />
+        <entry key="..\:/Users/62811/AndroidStudioProjects/UGD3_Kelompok2/app/src/main/res/layout/activity_donasi.xml" value="0.24912280701754386" />
+        <entry key="..\:/Users/62811/AndroidStudioProjects/UGD3_Kelompok2/app/src/main/res/layout/activity_home.xml" value="0.4" />
+        <entry key="..\:/Users/62811/AndroidStudioProjects/UGD3_Kelompok2/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/62811/AndroidStudioProjects/UGD3_Kelompok2/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/62811/AndroidStudioProjects/UGD3_Kelompok2/app/src/main/res/layout/activity_register.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/62811/AndroidStudioProjects/UGD3_Kelompok2/app/src/main/res/layout/activity_splash_screen.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/62811/AndroidStudioProjects/UGD3_Kelompok2/app/src/main/res/layout/activity_update_donasi.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/62811/AndroidStudioProjects/UGD3_Kelompok2/app/src/main/res/layout/activity_splash_screen.xml" value="0.264" />
+        <entry key="..\:/Users/62811/AndroidStudioProjects/UGD3_Kelompok2/app/src/main/res/layout/activity_update_donasi.xml" value="0.264" />
         <entry key="..\:/Users/62811/AndroidStudioProjects/UGD3_Kelompok2/app/src/main/res/layout/activity_update_profil.xml" value="0.12360688956433637" />
         <entry key="..\:/Users/62811/AndroidStudioProjects/UGD3_Kelompok2/app/src/main/res/layout/donasi_adapter.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/62811/AndroidStudioProjects/UGD3_Kelompok2/app/src/main/res/layout/fragment_donasi.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/62811/AndroidStudioProjects/UGD3_Kelompok2/app/src/main/res/layout/fragment_donasi.xml" value="0.4" />
         <entry key="..\:/Users/62811/AndroidStudioProjects/UGD3_Kelompok2/app/src/main/res/layout/fragment_donatur.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/62811/AndroidStudioProjects/UGD3_Kelompok2/app/src/main/res/layout/fragment_edit_profil.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/62811/AndroidStudioProjects/UGD3_Kelompok2/app/src/main/res/layout/fragment_edit_profile.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/62811/AndroidStudioProjects/UGD3_Kelompok2/app/src/main/res/layout/fragment_home.xml" value="0.264" />
+        <entry key="..\:/Users/62811/AndroidStudioProjects/UGD3_Kelompok2/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/Users/62811/AndroidStudioProjects/UGD3_Kelompok2/app/src/main/res/layout/fragment_profile.xml" value="0.264" />
         <entry key="..\:/Users/62811/AndroidStudioProjects/UGD3_Kelompok2/app/src/main/res/layout/rv_item_donatur.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/62811/AndroidStudioProjects/UGD3_Kelompok2/app/src/main/res/layout/rv_item_profile.xml" value="0.22644927536231885" />
+        <entry key="..\:/Users/62811/AndroidStudioProjects/UGD3_Kelompok2/app/src/main/res/menu/navigasi_bawah.xml" value="0.27184466019417475" />
+        <entry key="..\:/Users/62811/AndroidStudioProjects/UGD3_Kelompok2/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2595" />
       </map>
     </option>
   </component>

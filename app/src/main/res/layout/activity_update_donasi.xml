@@ -48,24 +48,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edittarget"
          />
-    <Button
-        android:id="@+id/button_save"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSave"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="SAVE"
+        android:background="@drawable/button_bg"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editPenggalang"
         android:layout_marginTop="20dp"
         />
-    <Button
-        android:id="@+id/button_update"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnUpdate"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="UPDATE"
+        android:background="@drawable/button_bg"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_save"
+        app:layout_constraintTop_toBottomOf="@+id/btnSave"
         android:layout_marginTop="20dp"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>

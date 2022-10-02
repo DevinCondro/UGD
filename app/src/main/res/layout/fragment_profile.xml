@@ -6,209 +6,207 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="20dp"
-    tools:context=".Fragment.FragmentProfile">
+    tools:context=".FragmentProfile">
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/layout_fragment_profil"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <ImageView
-        android:id="@+id/iv_circle"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginStart="-80dp"
-        android:layout_marginTop="-80dp"
-        android:src="@drawable/circle"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/blue1" />
-
-    <ImageView
-        android:layout_width="234dp"
-        android:layout_height="233dp"
-        android:layout_marginTop="-180dp"
-        android:src="@drawable/circle"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/blue1" />
-
-    <ImageView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginEnd="-100dp"
-        android:layout_marginBottom="-40dp"
-        android:src="@drawable/circle"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:tint="@color/blue1" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="320dp"
-        android:layout_height="320dp"
-        android:layout_marginBottom="-240dp"
-        android:src="@drawable/circle"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:tint="@color/blue1" />
-
-    <TextView
-        android:id="@+id/textProfil"
-        android:layout_width="146dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="44dp"
-        android:text="PROFILE USER"
-
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        app:autoSizeTextType="uniform"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/homeHospital"
-        android:layout_width="145dp"
-        android:layout_height="133dp"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/ic_user_24"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textProfil"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="53dp" />
-
-
-    <TextView
-        android:id="@+id/textUsername"
-        style="@style/TextAppearance.MaterialComponents.Headline6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="USERNAME"
-        android:textColor="@color/black"
-        app:layout_constraintHorizontal_bias="0.0"
-        android:layout_marginTop="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/homeHospital" />
-
-    <TextView
-        android:id="@+id/viewUsername"
-        style="@style/TextAppearance.MaterialComponents.Caption"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="12dp"
-        android:padding="12dp"
-        android:text="View Username"
-        android:textColor="@color/black"
-        android:textSize="15dp"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textUsername" />
-
-    <TextView
-        android:id="@+id/textTanggal"
-        style="@style/TextAppearance.MaterialComponents.Headline6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tanggal Lahir"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/viewUsername" />
-
-    <TextView
-        android:id="@+id/viewTanggal"
-        style="@style/TextAppearance.MaterialComponents.Caption"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="12dp"
-        android:padding="12dp"
-        android:text="View Tanggal"
-        android:textColor="@color/black"
-        android:textSize="15dp"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textTanggal" />
-
-    <TextView
-        android:id="@+id/textEmail"
-        style="@style/TextAppearance.MaterialComponents.Headline6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Email"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/viewTanggal" />
-
-    <TextView
-        android:id="@+id/viewEmail"
-        style="@style/TextAppearance.MaterialComponents.Caption"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="12dp"
-        android:padding="12dp"
-        android:text="View email"
-        android:textColor="@color/black"
-        android:textSize="15dp"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textEmail" />
-
-    <TextView
-        android:id="@+id/textNoTelp"
-        style="@style/TextAppearance.MaterialComponents.Headline6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nomor Telepon"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/viewEmail" />
-
-    <TextView
-        android:id="@+id/viewNomorTelepon"
-        style="@style/TextAppearance.MaterialComponents.Caption"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="12dp"
-        android:padding="12dp"
-        android:text="View noTelp"
-        android:textColor="@color/black"
-        android:textSize="15dp"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textNoTelp" />
-
-    <FrameLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/viewNomorTelepon"
-        tools:ignore="MissingConstraints">
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnUpdate"
-            android:layout_width="367dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal|center_vertical|center"
-            android:layout_marginTop="8dp"
-            android:background="@color/blue_box"
-            android:backgroundTint="@color/blue_box"
-            android:gravity="center"
-            android:text="Update Profil"
-            android:textColor="@color/white"
-            android:textSize="10sp"
-            android:textStyle="bold"
-            android:typeface="monospace"
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/layout_fragment_profil"
+            android:layout_width="407dp"
+            android:layout_height="708dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.43"
-            app:layout_constraintTop_toBottomOf="@+id/viewNomorTelepon" />
-    </FrameLayout>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ImageView
+            android:id="@+id/iv_circle"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginStart="-80dp"
+            android:layout_marginTop="-80dp"
+            android:src="@drawable/circle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/blue1" />
+
+        <ImageView
+            android:layout_width="234dp"
+            android:layout_height="233dp"
+            android:layout_marginTop="-180dp"
+            android:src="@drawable/circle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/blue1" />
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginEnd="-100dp"
+            android:layout_marginBottom="-40dp"
+            android:src="@drawable/circle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:tint="@color/blue1" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="320dp"
+            android:layout_height="320dp"
+            android:layout_marginBottom="-240dp"
+            android:src="@drawable/circle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:tint="@color/blue1" />
+
+
+        <TextView
+            android:id="@+id/textProfil"
+            android:layout_width="138dp"
+            android:layout_height="72dp"
+            android:layout_marginTop="16dp"
+            android:text="PROFILE USER"
+
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/homeHospital"
+            android:layout_width="145dp"
+            android:layout_height="133dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/ic_user_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textProfil"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/textUsername"
+            style="@style/TextAppearance.MaterialComponents.Headline6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="8dp"
+            android:text="USERNAME"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/homeHospital" />
+
+        <TextView
+            android:id="@+id/viewUsername"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:padding="12dp"
+            android:text="View Username"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textUsername" />
+
+        <TextView
+            android:id="@+id/textTanggal"
+            style="@style/TextAppearance.MaterialComponents.Headline6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tanggal Lahir"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewUsername" />
+
+        <TextView
+            android:id="@+id/viewTanggal"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:padding="12dp"
+            android:text="View Tanggal"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textTanggal" />
+
+        <TextView
+            android:id="@+id/textEmail"
+            style="@style/TextAppearance.MaterialComponents.Headline6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewTanggal" />
+
+        <TextView
+            android:id="@+id/viewEmail"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:padding="12dp"
+            android:text="View email"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textEmail" />
+
+        <TextView
+            android:id="@+id/textNoTelp"
+            style="@style/TextAppearance.MaterialComponents.Headline6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nomor Telepon"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewEmail" />
+
+        <TextView
+            android:id="@+id/viewNomorTelepon"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:padding="12dp"
+            android:text="View noTelp"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textNoTelp" />
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/viewNomorTelepon"
+            tools:ignore="MissingConstraints">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnUpdate"
+                    android:layout_width="367dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal|center_vertical|center"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="@color/blue"
+                    android:gravity="center"
+                    android:text="Update Profil"
+                    android:textColor="@color/white"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:typeface="monospace"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.43"
+                    app:layout_constraintTop_toBottomOf="@+id/viewNomorTelepon" />
+        </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.ugd.R
 import com.example.ugd.entity.Donatur
 
 class RVDonaturAdapter(private val data: Array<Donatur>) : RecyclerView.Adapter<RVDonaturAdapter.viewHolder>() {

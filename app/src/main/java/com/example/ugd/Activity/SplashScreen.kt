@@ -21,13 +21,13 @@ class SplashScreen : AppCompatActivity() {
         sharedPreferences = getSharedPreferences(myPreferences, MODE_PRIVATE)
 
         if(sharedPreferences!!.contains(nama)){
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
             finish()
         }else{
             setContentView(R.layout.activity_splash_screen)
             Handler().postDelayed({
-                val intent = Intent(this, MainActivity::class.java)
+                val intent = Intent(this, LoginActivity::class.java)
                 startActivity(intent)
                 finish()
             }, 5000)

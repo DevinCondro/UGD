@@ -142,7 +142,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="64dp"
         android:text="Sign Up"
-       android:background="@drawable/button_bg"
+        android:background="@drawable/button_bg"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

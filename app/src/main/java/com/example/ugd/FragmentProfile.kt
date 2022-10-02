@@ -1,15 +1,15 @@
-package com.example.ugd.Fragment
+package com.example.ugd
 
-import androidx.fragment.app.Fragment
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.FragmentTransaction
 import com.example.ugd.Activity.HomeActivity
 import com.example.ugd.R
 import com.example.ugd.databinding.FragmentProfileBinding
 import com.example.ugd.room.UserDB
+
 
 class FragmentProfile() : Fragment() {
     // TODO: Rename and change types of parameters
@@ -35,7 +35,7 @@ class FragmentProfile() : Fragment() {
         setData()
 
         binding.btnUpdate.setOnClickListener {
-            transitionFragment(FragmentEditProfile())
+            transitionFragment(FragmentEditProfil())
         }
     }
 
@@ -53,11 +53,11 @@ class FragmentProfile() : Fragment() {
         val user = userDao.getUser(sharedPreferences.getInt("id", 0))
         binding.viewUsername.setText(user.username)
         binding.viewTanggal.setText(user.tanggal)
-        binding.viewEmail.setText(user.email)
-        binding.viewNomorTelepon.setText(user.telp)
+        binding.viewEmail.setText(user.Email)
+        binding.viewNomorTelepon.setText(user.nomorTelepon)
     }
 
-    private fun transitionFragment(fragment: FragmentEditProfile) {
+    private fun transitionFragment(fragment: Fragment) {
         val transition = requireActivity().supportFragmentManager.beginTransaction()
         transition.replace(R.id.layout_fragment, fragment)
             .addToBackStack(null).commit()

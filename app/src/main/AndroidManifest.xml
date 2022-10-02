@@ -29,16 +29,13 @@
             android:name=".Activity.UpdateDonasi"
             android:exported="false" />
         <activity
-            android:name=".UpdateProfilActivity"
-            android:exported="false" />
-        <activity
             android:name=".Activity.HomeActivity"
             android:exported="false" />
         <activity
             android:name=".Activity.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity.MainActivity"
+            android:name=".Activity.LoginActivity"
             android:exported="true" />
         <service
             android:name=".PushNotification.MyFirebaseMessagingService"

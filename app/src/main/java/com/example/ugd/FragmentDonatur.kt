@@ -1,4 +1,4 @@
-package com.example.ugd.Fragment
+package com.example.ugd
 
 import androidx.fragment.app.Fragment
 import android.os.Bundle

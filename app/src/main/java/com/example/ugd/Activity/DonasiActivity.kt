@@ -5,10 +5,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.ugd.DonasiAdapter
 import com.example.ugd.R
+import com.example.ugd.databinding.ActivityDonasiBinding
 import com.example.ugd.room.Constant
 import com.example.ugd.room.Donasi
 import com.example.ugd.room.DonasiDB
@@ -21,15 +22,25 @@ import kotlinx.coroutines.withContext
 class DonasiActivity : AppCompatActivity() {
     val db by lazy { DonasiDB(this) }
     lateinit var donasiAdapter: DonasiAdapter
+    private lateinit var binding: ActivityDonasiBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_donasi)
+        binding = ActivityDonasiBinding.inflate(layoutInflater)
+        val view = binding.root
+
+        setContentView(view)
+
         setupListener()
         setupRecyclerView()
     }
     private fun setupRecyclerView() {
         donasiAdapter = DonasiAdapter(arrayListOf(), object :
-            DonasiAdapter.OnAdapterListener{
+            DonasiAdapter.OnAdapterListener {
+            override fun onClick(donasi: Donasi){
+                intentEdit(donasi.id, Constant.TYPE_READ)
+            }
             override fun onUpdate(donasi: Donasi) {
                 intentEdit(donasi.id, Constant.TYPE_UPDATE)
             }
@@ -76,7 +87,7 @@ class DonasiActivity : AppCompatActivity() {
         }
     }
     fun setupListener() {
-        button_create.setOnClickListener{
+        binding.btnCreate.setOnClickListener{
             intentEdit(0,Constant.TYPE_CREATE)
         }
     }

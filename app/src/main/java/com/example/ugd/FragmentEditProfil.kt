@@ -1,19 +1,20 @@
-package com.example.ugd.Fragment
+package com.example.ugd
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import com.example.ugd.Activity.HomeActivity
-import com.example.ugd.R
+import com.example.ugd.databinding.FragmentEditProfilBinding
 import com.example.ugd.room.User
 import com.example.ugd.room.UserDB
-import com.example.ugd.databinding.FragmentEditProfileBinding
+import com.example.ugd.FragmentProfile
 
-class FragmentEditProfile : Fragment (){
 
-    private var _binding: FragmentEditProfileBinding? = null
+class FragmentEditProfil : Fragment() {
+
+    private var _binding: FragmentEditProfilBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -21,7 +22,7 @@ class FragmentEditProfile : Fragment (){
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding = FragmentEditProfileBinding.inflate(inflater, container, false)
+        _binding = FragmentEditProfilBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
     }
@@ -84,7 +85,7 @@ class FragmentEditProfile : Fragment (){
             binding.updatePassword.text.toString(),
             binding.updateEmail.text.toString(),
             binding.updateTanggal.text.toString(),
-            binding.updatePhone.text.toString()
+            binding.updatePhone.text.toString(),
         )
         userDao.updateUser(user)
     }
@@ -93,6 +94,7 @@ class FragmentEditProfile : Fragment (){
         val transition = requireActivity().supportFragmentManager.beginTransaction()
         transition.replace(R.id.layout_fragment, fragment)
             .addToBackStack(null).commit()
-        transition.hide(FragmentEditProfile())
+        transition.hide(FragmentEditProfil())
     }
+
 }

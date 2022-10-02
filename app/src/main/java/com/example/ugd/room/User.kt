@@ -4,12 +4,13 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-data class User (
-    @PrimaryKey(autoGenerate = true)
-    val id: Int,
-    val username: String,
-    val password: String,
-    val email: String,
-    val tanggal: String,
-    val telp: String,
+data class User(
+        @PrimaryKey(autoGenerate = true)
+        val id: Int,
+        val username: String,
+        val Email: String,
+        val nomorTelepon: String,
+        val tanggal: String,
+        val password: String,
+      //  val namaLengkap: String
 )
