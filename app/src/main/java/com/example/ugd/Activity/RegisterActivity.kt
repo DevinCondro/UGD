@@ -120,7 +120,7 @@ class RegisterActivity : AppCompatActivity() {
         val pendingIntent: PendingIntent = PendingIntent.getActivity(this, 0, intent, 0)
 
         val broadcastIntent: Intent = Intent(this, NotificationReceiver:: class.java)
-        broadcastIntent.putExtra("toastMessage", "Hi " + binding.etUsername.setText("Berhasil Sign Up").toString())
+        broadcastIntent.putExtra("toastMessage","Selamat Datang " + binding.etUsername.text.toString())
         val actionIntent = PendingIntent.getBroadcast(this, 0, broadcastIntent, PendingIntent.FLAG_UPDATE_CURRENT)
         val defaultSoundUri= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
         val bigPictureBitmap = ContextCompat.getDrawable(this, R.drawable.profile)?.toBitmap()
@@ -132,7 +132,7 @@ class RegisterActivity : AppCompatActivity() {
                 NotificationCompat.BigPictureStyle()
                     .bigPicture(bigPictureBitmap)
             )
-            .setContentTitle(binding?.etUsername?.text.toString())
+            .setContentTitle(binding.etUsername.text.toString())
             .setContentText("Berhasil Sign Up Account")
             .setCategory(NotificationCompat.CATEGORY_MESSAGE)
             .setColor(Color.BLUE)
