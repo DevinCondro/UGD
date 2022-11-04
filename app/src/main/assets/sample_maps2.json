@@ -1,0 +1,15 @@
+{
+  "results": [
+    {
+      "geometry":{
+        "location": {
+          "lat": -7.759700,
+          "lng": 110.398331
+        }
+      },
+      "name": "Hartono Mall Yogyakarta",
+      "vicinity": "Jl. Ring Road Utara, Kaliwaru, Condongcatur, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55281"
+    }
+  ],
+  "status": "OK"
+}

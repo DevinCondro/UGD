@@ -10,7 +10,7 @@ import com.example.ugd.entity.Donatur
 
 class RVDonaturAdapter(private val data: Array<Donatur>) : RecyclerView.Adapter<RVDonaturAdapter.viewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RVDonaturAdapter.viewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): viewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.rv_item_donatur,parent,false)
         return viewHolder(itemView)
     }

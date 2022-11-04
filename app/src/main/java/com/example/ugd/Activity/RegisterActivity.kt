@@ -1,5 +1,6 @@
 package com.example.ugd.Activity
 
+import android.app.DatePickerDialog
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
@@ -20,6 +21,7 @@ import com.example.ugd.R
 import com.example.ugd.databinding.ActivityRegisterBinding
 import com.example.ugd.room.User
 import com.example.ugd.room.UserDB
+import java.util.*
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
@@ -45,6 +47,24 @@ class RegisterActivity : AppCompatActivity() {
         var inputNoTelp = binding.etPhone
         var inputTanggal = binding.etTanggal
 
+        binding.etTanggal.setOnClickListener{
+            val c = Calendar.getInstance()
+            val year = c.get(Calendar.YEAR)
+            val month = c.get(Calendar.MONTH)
+            val day = c.get(Calendar.DAY_OF_MONTH)
+
+            val dpd = DatePickerDialog(
+                this,
+                DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
+
+                    // Display Selected date in textbox
+                    binding.etTanggal.setText("" + dayOfMonth + "/" + monthOfYear + "/" + year)
+
+                }, year, month, day)
+
+            dpd.show()
+        }
+
         binding.btnSignUp.setOnClickListener(View.OnClickListener{
             val intent = Intent(this, LoginActivity::class.java)
             val mBundle = Bundle()
@@ -63,28 +83,24 @@ class RegisterActivity : AppCompatActivity() {
             mBundle.putString("NoHandphone",inputTanggal.text.toString())
 
             if(username.isEmpty()){
-                inputUsername.setError("Username must be filled with text")
+                binding.etUsername.setError("Username must be filled with text")
                 checkRegister = false
             }
             else if(password.isEmpty()){
-                inputPassword.setError("Password must be filled with text")
+                binding.etPassword.setError("Password must be filled with text")
                 checkRegister = false
             }
-            else if(email.isEmpty()){
-                inputEmail.setError("Email must be filled with text")
+            else if(email.matches(Regex("^[A-Za-z](.*)([@]{1})(.{1,})(\\.)(.{1,})"))){
+                binding.etEmail.setError("Email must be filled with text")
                 checkRegister = false
             }
             else if(tanggal.isEmpty()){
                 inputTanggal.setError("Tanggal must be filled with text")
                 checkRegister = false
             }
-            else if(telfon.isEmpty()){
-                inputNoTelp.setError("No Telp must be filled with text")
+            else if(telfon.length != 12){
+                inputNoTelp.setError("No Telp must be minimum 12 digit")
                 checkRegister = false
-            }
-
-            if(!username.isEmpty() && !tanggal.isEmpty() && !email.isEmpty() && !telfon.isEmpty()&& !password.isEmpty()) {
-                checkRegister = true
             }
 
             if(!checkRegister){

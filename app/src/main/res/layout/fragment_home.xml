@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/layout_home"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_home"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FragmentHome">
@@ -68,8 +68,8 @@
         android:id="@+id/homeHospital"
         android:layout_width="69dp"
         android:layout_height="40dp"
-        android:src="@drawable/ic_user_24"
         android:layout_marginTop="25dp"
+        android:src="@drawable/ic_user_24"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textMenu"
         tools:ignore="MissingConstraints" />
@@ -79,12 +79,12 @@
         style="@style/TextAppearance.MaterialComponents.Subtitle1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
         android:text="Hello!!, User"
         android:textColor="@color/black"
-        android:layout_marginTop="35dp"
         android:textSize="12sp"
-        app:layout_constraintTop_toBottomOf="@+id/textMenu"
         app:layout_constraintStart_toEndOf="@+id/homeHospital"
+        app:layout_constraintTop_toBottomOf="@+id/textMenu"
         tools:layout_editor_absoluteX="157dp" />
 
 
@@ -142,5 +142,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btnLocation"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="124dp"
+        android:backgroundTint="@color/blue"
+        android:scaleType="centerInside"
+        android:text="Our Office Location"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:typeface="monospace"
+        app:layout_constraintBottom_toTopOf="@+id/bencana"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintStart_toEndOf="@+id/textHome"
+        app:layout_constraintTop_toBottomOf="@+id/textMenu"
+        app:layout_constraintVertical_bias="0.529" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
