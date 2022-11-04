@@ -76,10 +76,10 @@
 
         <ImageView
             android:id="@+id/logoProfile"
-            android:layout_width="145dp"
-            android:layout_height="133dp"
+            android:layout_width="171dp"
+            android:layout_height="161dp"
             android:layout_marginTop="8dp"
-            android:src="@drawable/ic_user_24"
+            android:src="@drawable/logoprofile"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textProfil"
@@ -90,7 +90,6 @@
             style="@style/TextAppearance.MaterialComponents.Headline6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
             android:layout_marginTop="8dp"
             android:text="USERNAME"
             android:textColor="@color/black"

@@ -12,6 +12,7 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
@@ -21,6 +22,7 @@ import com.example.ugd.R
 import com.example.ugd.databinding.ActivityRegisterBinding
 import com.example.ugd.room.User
 import com.example.ugd.room.UserDB
+import com.google.android.material.snackbar.Snackbar
 import java.util.*
 
 class RegisterActivity : AppCompatActivity() {
@@ -90,16 +92,16 @@ class RegisterActivity : AppCompatActivity() {
                 binding.etPassword.setError("Password must be filled with text")
                 checkRegister = false
             }
-            else if(email.matches(Regex("^[A-Za-z](.*)([@]{1})(.{1,})(\\.)(.{1,})"))){
+            else if(email.isEmpty()){
                 binding.etEmail.setError("Email must be filled with text")
                 checkRegister = false
             }
             else if(tanggal.isEmpty()){
-                inputTanggal.setError("Tanggal must be filled with text")
+                binding.etTanggal.setError("Tanggal must be filled with text")
                 checkRegister = false
             }
             else if(telfon.length != 12){
-                inputNoTelp.setError("No Telp must be minimum 12 digit")
+                binding.etPhone.setError("No Telp must be minimum 12 digit")
                 checkRegister = false
             }
 
