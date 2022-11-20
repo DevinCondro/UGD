@@ -86,7 +86,7 @@ class DonasiAdapter (private var donasiList: List<DonasiUser>, context: Context)
         holder.btnDelete.setOnClickListener{
             val materialAlertDialogBuilder = MaterialAlertDialogBuilder(context)
             materialAlertDialogBuilder.setTitle("Konfirmasi")
-                .setMessage("Apakah anda yakin ingin menghapus data mahasiswa ini?")
+                .setMessage("Apakah anda yakin ingin menghapus data donasi ini?")
                 .setNegativeButton("Batal", null)
                 .setPositiveButton("Hapus"){ _, _ ->
                     if (context is DonasiActivity){
