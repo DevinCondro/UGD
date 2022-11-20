@@ -12,8 +12,6 @@ import androidx.appcompat.app.AlertDialog
 import com.example.ugd.Activity.DonasiActivity
 import com.example.ugd.Activity.HomeActivity
 import com.example.ugd.Activity.LoginActivity
-import com.example.ugd.Camera.CameraMain
-import com.example.ugd.Location.LocationMain
 import com.example.ugd.room.UserDB
 import kotlinx.android.synthetic.main.fragment_home.*
 
@@ -64,13 +62,6 @@ class FragmentHome : Fragment() {
                     }
                     setCancelable(true)
                 }.create().show()
-            }
-        })
-
-        btnLocation.setOnClickListener(View.OnClickListener{
-            requireActivity().run {
-                val intent = Intent(this@FragmentHome.context, LocationMain::class.java)
-                startActivity(intent)
             }
         })
     }

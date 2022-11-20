@@ -10,5 +10,7 @@ data class Donasi (
     val judulDonasi: String,
     val Deskripsi: String,
     val target: String,
-    val namaPengalang: String
+    val namaPengalang: String,
+    val caraPembayaran: String,
+    val daerah: String
 )

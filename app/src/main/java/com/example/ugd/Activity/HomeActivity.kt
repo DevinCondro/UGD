@@ -11,6 +11,7 @@ import com.example.ugd.FragmentDonatur
 import com.example.ugd.FragmentHome
 import com.example.ugd.R
 import com.example.ugd.FragmentProfile
+import com.example.ugd.Location.FragmentLocation
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class HomeActivity : AppCompatActivity() {
@@ -59,6 +60,11 @@ class HomeActivity : AppCompatActivity() {
                 R.id.Profile -> {
                     textView.text = null
                     changeFragment(FragmentProfile())
+                    return@setOnItemSelectedListener true
+                }
+                R.id.Location -> {
+                    textView.text = null
+                    changeFragment(FragmentLocation())
                     return@setOnItemSelectedListener true
                 }
             }

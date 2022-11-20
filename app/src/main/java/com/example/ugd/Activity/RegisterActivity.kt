@@ -104,6 +104,9 @@ class RegisterActivity : AppCompatActivity() {
                 binding.etPhone.setError("No Telp must be minimum 12 digit")
                 checkRegister = false
             }
+            if (!username.isEmpty() && !password.isEmpty() && !email.isEmpty() && !tanggal.isEmpty() && !telfon.isEmpty()){
+                checkRegister = true
+            }
 
             if(!checkRegister){
                 return@OnClickListener

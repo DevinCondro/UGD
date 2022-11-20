@@ -9,7 +9,28 @@
       },
       "name": "Kampus 3 Universitas Atma Jaya Yogyakarta",
       "vicinity": "Jl. Babarsari No.43, Janti, caturtunggal, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55281"
+    },
+    {
+      "geometry":{
+        "location": {
+          "lat": -7.759700,
+          "lng": 110.398331
+        }
+      },
+      "name": "Hartono Mall Yogyakarta",
+      "vicinity": "Jl. Ring Road Utara, Kaliwaru, Condongcatur, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55281"
+    },
+    {
+      "geometry":{
+        "location": {
+          "lat": -7.781837,
+          "lng": 110.401457
+        }
+      },
+      "name": "Plaza Ambarrukmo",
+      "vicinity": "Plaza Ambarrukmo, Jl. Laksda Adisucipto No.13, Caturtunggal, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55281, Indonesia"
     }
   ],
   "status": "OK"
 }
+

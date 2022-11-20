@@ -143,22 +143,4 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <Button
-        android:id="@+id/btnLocation"
-        android:layout_width="130dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="124dp"
-        android:backgroundTint="@color/blue"
-        android:scaleType="centerInside"
-        android:text="Our Office Location"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:typeface="monospace"
-        app:layout_constraintBottom_toTopOf="@+id/bencana"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.045"
-        app:layout_constraintStart_toEndOf="@+id/textHome"
-        app:layout_constraintTop_toBottomOf="@+id/textMenu"
-        app:layout_constraintVertical_bias="0.529" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
