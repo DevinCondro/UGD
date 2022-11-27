@@ -21,33 +21,28 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textWelcome"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:fontFamily="@font/bebas_neue_bold_700"
-                android:text="Selamat Datang"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="10sp" />
-
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
+    <nl.joery.animatedbottombar.AnimatedBottomBar
         android:id="@+id/botNavigation"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="wrap_content"
         android:background="@color/blue"
         android:theme="@style/Theme.Material3.DynamicColors.Light"
         app:itemIconTint="@color/black"
         app:itemTextColor="@color/white"
-        app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/navigasi_bawah" />
+        app:abb_indicatorAppearance="round"
+        app:abb_indicatorHeight="4dp"
+        app:abb_indicatorMargin="16dp"
+        app:abb_selectedIndex="0"
+        app:abb_indicatorColor="#FF0000"
+        app:abb_tabColorSelected="@color/black"
+        app:abb_selectedTabType="text"
+        app:abb_tabs="@menu/navigasi_bawah" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/layout_fragment"
@@ -58,6 +53,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        android:name="com.example.ugd.FragmentHome"
+        tools:layout="@layout/fragment_home" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,15 +8,23 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.ugd.R
+import com.example.ugd.databinding.ActivityLoginBinding
+import com.example.ugd.databinding.ActivityPdfBinding
 import com.example.ugd.room.UserDB
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.fragment_home.*
 
 class LoginActivity : AppCompatActivity() {
+    private var binding: ActivityLoginBinding? = null
     private lateinit var inputUsername: TextInputLayout
     private lateinit var inputPassword: TextInputLayout
     private lateinit var mainLayout: ConstraintLayout
@@ -34,7 +42,9 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        val view : View = binding!!.root
+        setContentView(view)
         supportActionBar?.hide()
 
         val db by lazy { UserDB(this) }
@@ -48,9 +58,20 @@ class LoginActivity : AppCompatActivity() {
         editPassword = findViewById(R.id.etPass)
 
         val btnLogin: Button = findViewById(R.id.btnLogin)
+        val btnFoto: ImageView = findViewById(R.id.logoLogin)
         val btnRegister: Button = findViewById(R.id.btnRegister)
 
         getBundle()
+
+        btnFoto.setOnClickListener(View.OnClickListener {
+            val url = "https://picsum.photos/300"
+            Glide.with(this)
+                .load(url)
+                .fitCenter()
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .skipMemoryCache(true)
+                .into(binding!!.logoLogin)
+        })
 
         btnLogin.setOnClickListener(View.OnClickListener {
             val username: String = inputUsername.getEditText()?.getText().toString()

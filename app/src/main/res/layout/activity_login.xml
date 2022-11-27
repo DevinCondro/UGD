@@ -47,18 +47,19 @@
         app:tint="@color/blue1" />
 
     <TextView
-        android:id="@+id/logoLogin"
+        android:id="@+id/textLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="92dp"
+        android:fontFamily="monospace"
         android:text="LOGIN"
         android:textColor="#090909"
         android:textSize="40dp"
         android:textStyle="bold"
-        android:fontFamily="monospace"
-        app:layout_constraintBottom_toTopOf="@+id/imageView2"
-        app:layout_constraintEnd_toEndOf="@+id/imageView2"
+        app:layout_constraintBottom_toTopOf="@+id/logoLogin"
+        app:layout_constraintEnd_toEndOf="@+id/logoLogin"
         app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="@+id/imageView2"
+        app:layout_constraintStart_toStartOf="@+id/logoLogin"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.93" />
 
@@ -113,7 +114,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/logoLogin" />
 
     <TextView
         android:id="@+id/tv_register"
@@ -140,7 +141,7 @@
         app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/logoLogin"
         android:layout_width="194dp"
         android:layout_height="164dp"
         android:layout_marginBottom="16dp"

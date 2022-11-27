@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.SearchView
 import android.widget.Toast
+import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -33,6 +34,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.json.JSONObject
+import www.sanju.motiontoast.MotionToast
+import www.sanju.motiontoast.MotionToastStyle
 import java.nio.charset.StandardCharsets
 
 class DonasiActivity : AppCompatActivity() {
@@ -113,10 +116,21 @@ class DonasiActivity : AppCompatActivity() {
                 srDonasi!!.isRefreshing = false
 
                 if (!donasi.isEmpty())
-                    Toast.makeText(this@DonasiActivity, "Data Berhasil Diambil!", Toast.LENGTH_SHORT)
-                        .show()
+                    MotionToast.createToast(this,
+                        "Hurray success 😍",
+                        "Upload Completed successfully!",
+                        MotionToastStyle.SUCCESS,
+                        MotionToast.GRAVITY_BOTTOM,
+                        MotionToast.LONG_DURATION,
+                        ResourcesCompat.getFont(this,R.font.bebas_neue_regular_400))
                 else
-                    Toast.makeText(this@DonasiActivity, "Data Kosong!", Toast.LENGTH_SHORT).show()
+                    MotionToast.createToast(this,
+                        "Failed ☹️",
+                        "Failed!",
+                        MotionToastStyle.ERROR,
+                        MotionToast.GRAVITY_BOTTOM,
+                        MotionToast.LONG_DURATION,
+                        ResourcesCompat.getFont(this,R.font.bebas_neue_regular_400))
             }, Response.ErrorListener { error ->
                 srDonasi!!.isRefreshing = false
                 try {
@@ -147,7 +161,13 @@ class DonasiActivity : AppCompatActivity() {
                 val gson = Gson()
                 var donasi = gson.fromJson(response, DonasiUser::class.java)
                 if (donasi != null)
-                    Toast.makeText(this@DonasiActivity, "Data Berhasil Dihapus", Toast.LENGTH_SHORT).show()
+                    MotionToast.createToast(this@DonasiActivity,
+                        "Hurray success 😍",
+                        "Data Berhasil Dihapus!",
+                        MotionToastStyle.SUCCESS,
+                        MotionToast.GRAVITY_BOTTOM,
+                        MotionToast.LONG_DURATION,
+                        ResourcesCompat.getFont(this,R.font.bebas_neue_regular_400))
                 allDonasi()
             }, Response.ErrorListener { error ->
                 setLoading(false)

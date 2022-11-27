@@ -1,11 +1,18 @@
 package com.example.ugd.Activity
 
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.drawable.BitmapDrawable
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Environment
 import android.view.View
 import android.view.WindowManager
 import android.widget.*
+import androidx.annotation.RequiresApi
+import androidx.core.content.res.ResourcesCompat
 import com.android.volley.AuthFailureError
 import com.android.volley.RequestQueue
 import com.android.volley.Response
@@ -17,12 +24,34 @@ import com.example.ugd.databinding.ActivityUpdateDonasiBinding
 import com.example.ugd.models.DonasiUser
 import com.example.ugd.room.*
 import com.google.gson.Gson
+import com.itextpdf.barcodes.BarcodeQRCode
+import com.itextpdf.io.image.ImageDataFactory
+import com.itextpdf.io.source.ByteArrayOutputStream
+import com.itextpdf.kernel.colors.ColorConstants
+import com.itextpdf.kernel.geom.PageSize
+import com.itextpdf.kernel.pdf.PdfDocument
+import com.itextpdf.kernel.pdf.PdfWriter
+import com.itextpdf.layout.Document
+import com.itextpdf.layout.element.Cell
+import com.itextpdf.layout.element.Image
+import com.itextpdf.layout.element.Paragraph
+import com.itextpdf.layout.element.Table
+import com.itextpdf.layout.property.HorizontalAlignment
+import com.itextpdf.layout.property.TextAlignment
 import kotlinx.android.synthetic.main.activity_update_donasi.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.json.JSONObject
+import www.sanju.motiontoast.MotionToast
+import www.sanju.motiontoast.MotionToastStyle
+import java.io.File
+import java.io.FileNotFoundException
+import java.io.FileOutputStream
 import java.nio.charset.StandardCharsets
+import java.time.LocalDate
+import java.time.LocalTime
+import java.time.format.DateTimeFormatter
 
 class UpdateDonasi : AppCompatActivity() {
 
@@ -57,7 +86,9 @@ class UpdateDonasi : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_update_donasi)
+        binding = ActivityUpdateDonasiBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
         queue = Volley.newRequestQueue(this)
         etJudul = findViewById(R.id.editJudul)
@@ -77,13 +108,116 @@ class UpdateDonasi : AppCompatActivity() {
         val id = intent.getIntExtra("id", -1)
         if (id == -1){
             tvTitle.setText("Tambah Donasi")
-            btnSave.setOnClickListener { createDonasi() }
+            btnSave.setOnClickListener {
+                val judul = etJudul!!.text.toString()
+                val deskripsi = etDeskripsi!!.text.toString()
+                val nominal = etNominal!!.text.toString()
+                val penggalang = etPenggalang!!.text.toString()
+                val pembayaran = cara!!.text.toString()
+                val daerah = daerah!!.text.toString()
+                try {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+                        if(judul.isEmpty() && deskripsi.isEmpty() && nominal.isEmpty() && penggalang.isEmpty() && pembayaran.isEmpty() && daerah.isEmpty()){
+                            Toast.makeText(applicationContext, "Semuanya Tidak Boleh Kosong", Toast.LENGTH_SHORT).show()
+                        }else{
+                            createPdf(judul, deskripsi, nominal, penggalang, pembayaran, daerah)
+                            createDonasi()
+                        }
+                    }
+                } catch (e: FileNotFoundException){
+                    e.printStackTrace()
+                }
+            }
         } else {
             tvTitle.setText("Edit Donasi")
             getDonasiById(id)
 
             btnSave.setOnClickListener { updateDonasi(id) }
         }
+    }
+
+    @SuppressLint("ObsoleteSdkInt")
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    @Throws(
+        FileNotFoundException::class
+    )
+    private fun createPdf(judul: String, deskripsi: String, nominal: String, penggalang: String, pembayaran: String, daerah: String) {
+        val pdfPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString()
+        val file = File(pdfPath, "donasi.pdf")
+        FileOutputStream(file)
+
+        val writer = PdfWriter(file)
+        val pdfDocument = PdfDocument(writer)
+        val document = Document(pdfDocument)
+        pdfDocument.defaultPageSize = PageSize.A4
+        document.setMargins(5f, 5f, 5f, 5f)
+        @SuppressLint("UseCompatLoadingForDrawables") val d = getDrawable(R.drawable.logo)
+
+
+        val bitmap = (d as BitmapDrawable?)!!.bitmap
+        val stream = ByteArrayOutputStream()
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream)
+        val bitmapData = stream.toByteArray()
+        val imageData = ImageDataFactory.create(bitmapData)
+        val image = Image(imageData)
+        val namapengguna = Paragraph("Identitas User").setBold().setFontSize(24f)
+            .setTextAlignment(TextAlignment.CENTER)
+        val group = Paragraph(
+            """
+                          Berikut adalah
+                          Profile User Aplikasi AyoPeduli 
+                          """.trimIndent()).setTextAlignment(TextAlignment.CENTER).setFontSize(12f)
+        val width = floatArrayOf(100f, 100f)
+        val table = Table(width)
+        table.setHorizontalAlignment(HorizontalAlignment.CENTER)
+        table.addCell(Cell().add(Paragraph("Judul Donasi")))
+        table.addCell(Cell().add(Paragraph(judul)))
+        table.addCell(Cell().add(Paragraph("Deskripsi")))
+        table.addCell(Cell().add(Paragraph(deskripsi)))
+        table.addCell(Cell().add(Paragraph("Target Nominal")))
+        table.addCell(Cell().add(Paragraph(nominal)))
+        table.addCell(Cell().add(Paragraph("Nama Penggalang")))
+        table.addCell(Cell().add(Paragraph(penggalang)))
+        table.addCell(Cell().add(Paragraph("Cara Pembayaran")))
+        table.addCell(Cell().add(Paragraph(pembayaran)))
+        table.addCell(Cell().add(Paragraph("Daerah Donasi")))
+        table.addCell(Cell().add(Paragraph(daerah)))
+        val dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
+        table.addCell(Cell().add(Paragraph("Tanggal Buat PDF")))
+        table.addCell(Cell().add(Paragraph(LocalDate.now().format(dateTimeFormatter))))
+        val timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss a")
+        table.addCell(Cell().add(Paragraph("Pukul Pembuatan")))
+        table.addCell(Cell().add(Paragraph(LocalTime.now().format(timeFormatter))))
+
+        val barcodeQRCode = BarcodeQRCode(
+            """
+                                      $judul
+                                      $deskripsi
+                                      $nominal
+                                      $penggalang
+                                      $pembayaran
+                                      $daerah
+                                      ${LocalDate.now().format(dateTimeFormatter)}
+                                      ${LocalTime.now().format(timeFormatter)}
+                                      """.trimIndent())
+        val qrCodeObject = barcodeQRCode.createFormXObject(ColorConstants.BLACK, pdfDocument)
+        val qrCodeImage = Image(qrCodeObject).setWidth(80f).setHorizontalAlignment(
+            HorizontalAlignment.CENTER)
+
+        document.add(image)
+        document.add(namapengguna)
+        document.add(group)
+        document.add(table)
+        document.add(qrCodeImage)
+
+        document.close()
+        MotionToast.createToast(this,
+            "Hurray success 😍",
+            "Upload Completed successfully!",
+            MotionToastStyle.SUCCESS,
+            MotionToast.GRAVITY_BOTTOM,
+            MotionToast.LONG_DURATION,
+            ResourcesCompat.getFont(this,R.font.bebas_neue_bold_700))
     }
 
     fun setExposedDropDownMenu(){
