@@ -9,124 +9,151 @@
     android:focusable="true"
     android:focusableInTouchMode="true"
     tools:context=".Activity.UpdateDonasi">
-
-    <TextView
-        android:id="@+id/tv_title"
-        style="@style/TextAppearance.AppCompat.Title"
+    
+    <ScrollView
+        android:id="@+id/scroll_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:text="Tambah Donasi"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnSave"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="36dp" />
-
-    <EditText
-        android:id="@+id/editJudul"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="Judul Donasi"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@id/tv_title"/>
-    <EditText
-        android:id="@+id/editDeskripsi"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="Deskripsi"
-        android:minLines="3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editJudul"
-        android:layout_marginTop="10dp"
-        android:gravity="top"
-        />
-    <EditText
-        android:id="@+id/edittarget"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="Target"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editDeskripsi"
-         />
-    <EditText
-        android:id="@+id/editPenggalang"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="Nama Penggalang Donasi"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edittarget"
-         />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/editCaraPembayaran"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        tools:ignore="NotSibling">
+    
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="8dp"
-        android:hint="Cara Pembayaran"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editPenggalang">
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
 
-        <AutoCompleteTextView
-            android:id="@+id/cara"
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/TextAppearance.AppCompat.Title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="none"/>
+            android:layout_margin="16dp"
+            android:text="Tambah Donasi"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="36dp" />
 
-    </com.google.android.material.textfield.TextInputLayout>
+        <EditText
+            android:id="@+id/editJudul"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Judul Donasi"
+            android:minHeight="48dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"/>
+        <EditText
+            android:id="@+id/editDeskripsi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Deskripsi"
+            android:minLines="3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editJudul"
+            android:layout_marginTop="10dp"
+            android:gravity="top"
+            />
+        <EditText
+            android:id="@+id/edittarget"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Target"
+            android:minHeight="48dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editDeskripsi"
+            />
+        <EditText
+            android:id="@+id/editPenggalang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nama Penggalang Donasi"
+            android:minHeight="48dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edittarget"
+            />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/editDaerah"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/editCaraPembayaran"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="8dp"
+            android:hint="Cara Pembayaran"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editPenggalang">
+
+            <AutoCompleteTextView
+                android:id="@+id/cara"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/editDaerah"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="8dp"
+            android:hint="Daerah"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editCaraPembayaran">
+
+            <AutoCompleteTextView
+                android:id="@+id/daerah"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/ll_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="8dp"
-        android:hint="Daerah"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editCaraPembayaran">
+        app:layout_constraintStart_toStartOf="parent">
 
-        <AutoCompleteTextView
-            android:id="@+id/daerah"
-            android:layout_width="match_parent"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnCancel"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:inputType="none"/>
+            android:layout_weight="1"
+            android:text="Batal"
+            android:background="@drawable/button_bg"/>
 
-    </com.google.android.material.textfield.TextInputLayout>
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnSave"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="SAVE"
-        android:background="@drawable/button_bg"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editDaerah"
-        android:layout_marginTop="20dp"
-        />
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnCancel"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Cancel"
-        android:background="@drawable/button_bg"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnSave"
-        android:layout_marginTop="20dp"
-        />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSave"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Save"
+            android:background="@drawable/button_bg"/>
+
+    </LinearLayout>
 
     <include
         android:id="@+id/layout_loading"
         layout="@layout/layout_loading"
         android:visibility="gone"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

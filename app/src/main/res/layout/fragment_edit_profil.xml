@@ -26,25 +26,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:tint="@color/blue1" />
 
-    <ImageView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginEnd="-100dp"
-        android:layout_marginBottom="-40dp"
-        android:src="@drawable/circle"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:tint="@color/blue1" />
-
-    <ImageView
-        android:layout_width="320dp"
-        android:layout_height="320dp"
-        android:layout_marginBottom="-240dp"
-        android:src="@drawable/circle"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:tint="@color/blue1" />
-
     <TextView
         android:id="@+id/logoUpdate"
         android:layout_width="wrap_content"
@@ -150,5 +131,9 @@
         app:layout_constraintTop_toBottomOf="@+id/updatePhone"
         app:layout_constraintVertical_bias="0.0" />
 
+    <include
+        android:id="@+id/layout_loading"
+        layout="@layout/layout_loading"
+        android:visibility="gone"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

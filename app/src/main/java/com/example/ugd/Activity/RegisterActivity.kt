@@ -12,27 +12,47 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.view.WindowManager
+import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.drawable.toBitmap
+import com.android.volley.AuthFailureError
+import com.android.volley.RequestQueue
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import com.example.ugd.PushNotification.NotificationReceiver
 import com.example.ugd.R
+import com.example.ugd.api.PenggunaAPI
 import com.example.ugd.databinding.ActivityRegisterBinding
+import com.example.ugd.models.Pengguna
 import com.example.ugd.room.User
 import com.example.ugd.room.UserDB
 import com.google.android.material.snackbar.Snackbar
+import com.google.gson.Gson
+import kotlinx.android.synthetic.main.activity_register.*
+import org.json.JSONObject
+import www.sanju.motiontoast.MotionToast
+import www.sanju.motiontoast.MotionToastStyle
+import java.nio.charset.StandardCharsets
 import java.util.*
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
     private val CHANNEL_ID = "channel_01"
     private val notificationId = 101
+    private var queue: RequestQueue? = null
+    private var layoutLoading: LinearLayout? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
+        queue = Volley.newRequestQueue(this)
         val view = binding.root
         setContentView(view)
 
@@ -48,6 +68,7 @@ class RegisterActivity : AppCompatActivity() {
         var inputEmail = binding.etEmail
         var inputNoTelp = binding.etPhone
         var inputTanggal = binding.etTanggal
+        layoutLoading = findViewById(R.id.layout_loading)
 
         binding.etTanggal.setOnClickListener{
             val c = Calendar.getInstance()
@@ -110,15 +131,110 @@ class RegisterActivity : AppCompatActivity() {
 
             if(!checkRegister){
                 return@OnClickListener
+            }else{
+                createUser(mBundle)
             }
 
-            val user = User(0, username, email, telfon, tanggal, password)
-            userDao.addUser(user)
+//            val user = User(0, username, email, telfon, tanggal, password)
+//            userDao.addUser(user)
 
-            sendNotification()
-            intent.putExtra("Register", mBundle)
-            startActivity(intent)
+
+//            intent.putExtra("Register", mBundle)
+//            startActivity(intent)
         })
+    }
+
+    private fun createUser(mBundle: Bundle) {
+        setLoading(true)
+        if (etUsername!!.text.toString().isEmpty()){
+            Toast.makeText(this@RegisterActivity, "Username Tidak Boleh Kosong", Toast.LENGTH_SHORT).show()
+        }
+        else if (etEmail!!.text.toString().isEmpty()){
+            Toast.makeText(this@RegisterActivity, "Email Tidak Boleh Kosong", Toast.LENGTH_SHORT).show()
+        }
+        else if (etPhone!!.text.toString().isEmpty() && etPhone!!.text.toString().length < 12){
+            Toast.makeText(this@RegisterActivity, "Nomor Telepon Tidak Boleh Kosong dan Harus 12-13 Digit", Toast.LENGTH_SHORT).show()
+        }
+        else if (etTanggal!!.text.toString().isEmpty()){
+            Toast.makeText(this@RegisterActivity, "Tanggal Tidak Boleh Kosong", Toast.LENGTH_SHORT).show()
+        }
+        else if (etPassword!!.text.toString().isEmpty()){
+            Toast.makeText(this@RegisterActivity, "Password Tidak Boleh Kosong", Toast.LENGTH_SHORT).show()
+        }
+        else{
+            val userprofil = Pengguna(
+                0,
+                binding.etUsername.getText().toString(),
+                binding.etEmail.getText().toString(),
+                binding.etPhone.getText().toString(),
+                binding.etTanggal.getText().toString(),
+                binding.etPassword.getText().toString()
+            )
+            val stringRequest: StringRequest =
+                object : StringRequest(Method.POST, PenggunaAPI.REGISTER, Response.Listener { response ->
+                    val gson = Gson()
+                    var user = gson.fromJson(response, PenggunaAPI::class.java)
+
+                    if(user != null) {
+//                    Toast.makeText(this@RegisterActivity, "User Berhasil Register", Toast.LENGTH_SHORT).show()
+                        MotionToast.darkColorToast(this,"Notification Register!",
+                            "Register Berhasil!!",
+                            MotionToastStyle.SUCCESS,
+                            MotionToast.GRAVITY_BOTTOM,
+                            MotionToast.LONG_DURATION,
+                            ResourcesCompat.getFont(this, www.sanju.motiontoast.R.font.helvetica_regular))
+                        val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
+                        sendNotification()
+                        intent.putExtra("Register", mBundle)
+                        startActivity(intent)
+                    }
+                }, Response.ErrorListener { error ->
+                    // setLoading(false)
+                    try {
+                        val responseBody = String(error.networkResponse.data, StandardCharsets.UTF_8)
+                        val errors = JSONObject(responseBody)
+//                    Toast.makeText(
+//                        this@RegisterActivity,
+//                        errors.getString("message"),
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+                        MotionToast.darkColorToast(this,"Notification Register!",
+                            errors.getString("message"),
+                            MotionToastStyle.INFO,
+                            MotionToast.GRAVITY_BOTTOM,
+                            MotionToast.LONG_DURATION,
+                            ResourcesCompat.getFont(this, www.sanju.motiontoast.R.font.helvetica_regular))
+                    }catch (e: Exception) {
+//                    Toast.makeText(this@RegisterActivity, e.message, Toast.LENGTH_SHORT).show()
+                        MotionToast.darkColorToast(this,"Notification Register!",
+                            e.message.toString(),
+                            MotionToastStyle.INFO,
+                            MotionToast.GRAVITY_BOTTOM,
+                            MotionToast.LONG_DURATION,
+                            ResourcesCompat.getFont(this, www.sanju.motiontoast.R.font.helvetica_regular))
+                    }
+                }) {
+                    @Throws(AuthFailureError::class)
+                    override fun getHeaders(): Map<String, String> {
+                        val headers = HashMap<String, String>()
+                        headers["Accept"] = "application/json"
+                        return headers
+                    }
+
+                    @Throws(AuthFailureError::class)
+                    override fun getBody(): ByteArray {
+                        val gson = Gson()
+                        val requestBody = gson.toJson(userprofil)
+                        return requestBody.toByteArray(StandardCharsets.UTF_8)
+                    }
+
+                    override fun getBodyContentType(): String {
+                        return "application/json"
+                    }
+                }
+            queue!!.add(stringRequest)
+        }
+        setLoading(false)
     }
 
     private fun createChannel() {
@@ -165,6 +281,19 @@ class RegisterActivity : AppCompatActivity() {
 
         with(NotificationManagerCompat.from(this)){
             notify(notificationId, builder.build())
+        }
+    }
+
+    private fun setLoading(isLoading: Boolean){
+        if(isLoading){
+            window.setFlags(
+                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
+            )
+            layoutLoading!!.visibility = View.VISIBLE
+        } else {
+            window.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
+            layoutLoading!!.visibility = View.INVISIBLE
         }
     }
 }

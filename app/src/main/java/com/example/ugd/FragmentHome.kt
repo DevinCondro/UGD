@@ -36,10 +36,11 @@ class FragmentHome : Fragment() {
         val bencana: ImageView = view.findViewById(R.id.bencana)
 
         val sharedPreferences = (activity as HomeActivity).getSharedPreferences()
-        val user = userDao.getUser(sharedPreferences.getInt("id", 0))
+//        val user = userDao.getUser(sharedPreferences.getInt("id", 0))
+//
+//        textNama.setText("Hi, " + user.username)
 
-        textNama.setText("Hi, " + user.username)
-
+        textNama.setText("Hi, " + sharedPreferences.getString("nama",null))
         btnTambahDonasi.setOnClickListener(View.OnClickListener {
             val moveDonasi= Intent(this@FragmentHome.context, DonasiActivity::class.java)
             startActivity(moveDonasi)

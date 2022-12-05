@@ -117,12 +117,8 @@ class UpdateDonasi : AppCompatActivity() {
                 val daerah = daerah!!.text.toString()
                 try {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-                        if(judul.isEmpty() && deskripsi.isEmpty() && nominal.isEmpty() && penggalang.isEmpty() && pembayaran.isEmpty() && daerah.isEmpty()){
-                            Toast.makeText(applicationContext, "Semuanya Tidak Boleh Kosong", Toast.LENGTH_SHORT).show()
-                        }else{
                             createPdf(judul, deskripsi, nominal, penggalang, pembayaran, daerah)
                             createDonasi()
-                        }
                     }
                 } catch (e: FileNotFoundException){
                     e.printStackTrace()
@@ -279,62 +275,83 @@ class UpdateDonasi : AppCompatActivity() {
     private fun createDonasi(){
         setLoading(true)
 
-        val donasi = DonasiUser(
-            0,
-            etJudul!!.text.toString(),
-            etDeskripsi!!.text.toString(),
-            etNominal!!.text.toString(),
-            etPenggalang!!.text.toString(),
-            cara!!.text.toString(),
-            daerah!!.text.toString()
-        )
+        if (etJudul!!.text.toString().isEmpty()){
+            Toast.makeText(this@UpdateDonasi, "Judul Tidak Boleh Kosong", Toast.LENGTH_SHORT).show()
+        }
+        else if (etDeskripsi!!.text.toString().isEmpty()){
+            Toast.makeText(this@UpdateDonasi, "Deskripsi Tidak Boleh Kosong", Toast.LENGTH_SHORT).show()
+        }
+        else if (etNominal!!.text.toString().isEmpty()){
+            Toast.makeText(this@UpdateDonasi, "Target Nominal Tidak Boleh Kosong", Toast.LENGTH_SHORT).show()
+        }
+        else if (etPenggalang!!.text.toString().isEmpty()){
+            Toast.makeText(this@UpdateDonasi, "Nama Penggalang Tidak Boleh Kosong", Toast.LENGTH_SHORT).show()
+        }
+        else if (cara!!.text.toString().isEmpty()){
+            Toast.makeText(this@UpdateDonasi, "Cara Pembayaran Tidak Boleh Kosong", Toast.LENGTH_SHORT).show()
+        }
+        else if (daerah!!.text.toString().isEmpty()){
+            Toast.makeText(this@UpdateDonasi, "Lokasi Daerah Tidak Boleh Kosong", Toast.LENGTH_SHORT).show()
+        }
+        else{
+            val donasi = DonasiUser(
+                0,
+                etJudul!!.text.toString(),
+                etDeskripsi!!.text.toString(),
+                etNominal!!.text.toString(),
+                etPenggalang!!.text.toString(),
+                cara!!.text.toString(),
+                daerah!!.text.toString()
+            )
 
-        val stringRequest: StringRequest =
-            object : StringRequest(Method.POST, DonasiAPI.ADD_URL, Response.Listener { response ->
-                val gson = Gson()
-                var donasi = gson.fromJson(response, DonasiUser::class.java)
-
-                if(donasi != null)
-                    Toast.makeText(this@UpdateDonasi, "Data berhasil Ditambahkan", Toast.LENGTH_SHORT).show()
-
-                val returnIntent = Intent()
-                setResult(RESULT_OK, returnIntent)
-                finish()
-
-                setLoading(false)
-            }, Response.ErrorListener { error ->
-                setLoading(false)
-                try {
-                    val responseBody = String(error.networkResponse.data, StandardCharsets.UTF_8)
-                    val errors = JSONObject(responseBody)
-                    Toast.makeText(
-                        this@UpdateDonasi,
-                        errors.getString("message"),
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }catch (e: Exception){
-                    Toast.makeText(this@UpdateDonasi, e.message, Toast.LENGTH_SHORT).show()
-                }
-            }){
-                @Throws(AuthFailureError::class)
-                override fun getHeaders(): Map<String, String> {
-                    val headers = HashMap<String, String>()
-                    headers["Accept"] = "application/json"
-                    return headers
-                }
-
-                @Throws(AuthFailureError::class)
-                override fun getBody(): ByteArray {
+            val stringRequest: StringRequest =
+                object : StringRequest(Method.POST, DonasiAPI.ADD_URL, Response.Listener { response ->
                     val gson = Gson()
-                    val requestBody = gson.toJson(donasi)
-                    return requestBody.toByteArray(StandardCharsets.UTF_8)
-                }
+                    var donasi = gson.fromJson(response, DonasiUser::class.java)
 
-                override fun getBodyContentType(): String {
-                    return "application/json"
+                    if(donasi != null)
+                        Toast.makeText(this@UpdateDonasi, "Data berhasil Ditambahkan", Toast.LENGTH_SHORT).show()
+
+                    val returnIntent = Intent()
+                    setResult(RESULT_OK, returnIntent)
+                    finish()
+
+                    setLoading(false)
+                }, Response.ErrorListener { error ->
+                    setLoading(false)
+                    try {
+                        val responseBody = String(error.networkResponse.data, StandardCharsets.UTF_8)
+                        val errors = JSONObject(responseBody)
+                        Toast.makeText(
+                            this@UpdateDonasi,
+                            errors.getString("message"),
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }catch (e: Exception){
+                        Toast.makeText(this@UpdateDonasi, e.message, Toast.LENGTH_SHORT).show()
+                    }
+                }){
+                    @Throws(AuthFailureError::class)
+                    override fun getHeaders(): Map<String, String> {
+                        val headers = HashMap<String, String>()
+                        headers["Accept"] = "application/json"
+                        return headers
+                    }
+
+                    @Throws(AuthFailureError::class)
+                    override fun getBody(): ByteArray {
+                        val gson = Gson()
+                        val requestBody = gson.toJson(donasi)
+                        return requestBody.toByteArray(StandardCharsets.UTF_8)
+                    }
+
+                    override fun getBodyContentType(): String {
+                        return "application/json"
+                    }
                 }
-            }
-        queue!!.add(stringRequest)
+            queue!!.add(stringRequest)
+        }
+        setLoading(false)
     }
 
     private fun updateDonasi(id: Int){
