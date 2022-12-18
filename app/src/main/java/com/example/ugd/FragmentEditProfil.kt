@@ -187,7 +187,6 @@ class FragmentEditProfil : Fragment() {
                 }
             }
         queue!!.add(stringRequest)
-
     }
 
     private fun setLoading(isLoading: Boolean){
